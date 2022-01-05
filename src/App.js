@@ -1,25 +1,110 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import UserSettings from "./Pages/UserSettings";
+import { Navbar } from "./Components/Navbar";
+import { Sidebar } from "./Components/Sidebar";
+import { Footer } from "./Components/Footer";
+import { ConsultantProfile } from "./Pages/ConsultantProfile";
+import { ConsultantAssignments } from "./Pages/ConsultantAssignments";
+import { Home } from "./Pages/Home";
+import { CreateAssignment } from "./Components/CreateAssignment";
+import { Notifications } from "./Components/Notifications";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <GlobalStyle>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <Home />
+                <Footer extended />
+              </>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <>
+                <Navbar />
+                <div className="mid">
+                  <Sidebar />
+                  <UserSettings />
+                </div>
+                <Footer extended />
+              </>
+            }
+          />
+          <Route
+            path="/assignments"
+            element={
+              <>
+                <Navbar />
+                <div className="mid">
+                  <Sidebar />
+                  <ConsultantAssignments />
+                </div>
+                <Footer extended />
+              </>
+            }
+          />
+          <Route
+            path="/create-assignment"
+            element={
+              <>
+                <CreateAssignment />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/consultant"
+            element={
+              <>
+                <Navbar />
+                <ConsultantProfile />
+                <Footer extended />
+              </>
+            }
+          />
+          <Route
+            path="/notifications"
+            element={
+              <>
+                <Navbar />
+                <Notifications />
+              </>
+            }
+          />
+        </Routes>
+      </GlobalStyle>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+const GlobalStyle = styled.div`
+  background-color: #f9f9f9;
+  .mid {
+    display: grid;
+    grid-template-columns: 1fr 3.2fr;
+    grid-gap: 2rem;
+    margin: 2rem 7rem 9rem 7rem;
+  }
+  @media screen and (max-width: 800px) {
+    .mid {
+      /* display: block; */
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
+      margin: 2rem 1rem;
+      div:nth-child(1) {
+        order: 2;
+      }
+      /* margin-left: -10rem; */
+    }
+  }
+`;

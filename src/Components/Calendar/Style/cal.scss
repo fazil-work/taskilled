@@ -1,0 +1,170 @@
+$primary-color: #eeeeee;
+$secondary-color: #222;
+button:focus,
+select:focus,
+input {
+  outline: 0;
+}
+.outer {
+  margin: 1.5rem 0 3rem 0;
+  .wrapper {
+    .flip-container-left,
+    .flip-container-right {
+      .flipper {
+        transform-style: preserve-3d;
+        position: relative;
+        height: inherit;
+        .btn {
+          width: 2rem;
+          height: 2rem;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+        .btn-prev {
+          transform: rotate(90deg);
+        }
+        .btn-next {
+          transform: rotate(-90deg);
+        }
+        .btn-prev,
+        .btn-next {
+          border: none;
+          background: none;
+          font-size: 1.5rem;
+        }
+        .select-month {
+          height: 3rem;
+          cursor: pointer;
+          font-family: "Euclid";
+          font-size: 17px;
+          font-weight: 500;
+          border: none;
+        }
+      }
+      .front-right,
+      .back-right {
+        border-radius: 0.5rem;
+      }
+    }
+  }
+  .flip-container-right {
+    .toggle {
+      transform: rotateX(180deg);
+    }
+    .flipper {
+      transition: 1s ease-in;
+      .front {
+        border: 1px solid #eee;
+        padding: 1rem;
+        * {
+          overflow: hidden;
+        }
+        .container-date-picker {
+          width: 90%;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+        }
+        .container-day {
+          margin-bottom: 1rem;
+          display: grid;
+          text-align: center;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          grid-template-columns: repeat(7, 3rem);
+          .weekday {
+            color: #b46c5f;
+          }
+          .weekday,
+          .day-block {
+            height: 2rem;
+            font-weight: 400;
+            margin: 0.25rem;
+          }
+          .day-block {
+            cursor: pointer;
+            transition: 0.2s;
+            .inner {
+              transition: background-color 1s;
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+          .active {
+            background-color: #50c493;
+            border-radius: 0.3rem;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .outer {
+    // transform: scale(0.9);
+    margin: 1.5rem 0 3rem 0;
+    .wrapper {
+      margin: 0 auto;
+      // margin-left: -1rem;
+      padding: 0;
+      .flip-container-left,
+      .flip-container-right {
+        .flipper {
+          transform-style: preserve-3d;
+          position: relative;
+          height: inherit;
+          margin: 0;
+          padding: 0;
+          .btn {
+            // width: 0.5rem;
+            // height: 1rem;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+          .btn-prev,
+          .btn-next {
+            border: none;
+            background: none;
+            font-size: 1.5rem;
+          }
+          .select-month {
+            height: 3rem;
+            cursor: pointer;
+            font-family: "Euclid";
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+          }
+        }
+        .front-right,
+        .back-right {
+          border-radius: 0.5rem;
+        }
+      }
+    }
+    .flip-container-right {
+      .flipper {
+        .front {
+          border: none;
+          margin: 0;
+          padding: 0;
+          * {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}

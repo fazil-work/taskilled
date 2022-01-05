@@ -1,0 +1,214 @@
+button:focus,
+select:focus,
+input {
+  outline: 0;
+}
+
+.outer {
+  margin: 1.5rem 0 3rem 0;
+}
+
+.outer .wrapper .flip-container-left .flipper,
+.outer .wrapper .flip-container-right .flipper {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+  height: inherit;
+}
+
+.outer .wrapper .flip-container-left .flipper .btn,
+.outer .wrapper .flip-container-right .flipper .btn {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.outer .wrapper .flip-container-left .flipper .btn:hover,
+.outer .wrapper .flip-container-right .flipper .btn:hover {
+  opacity: 0.5;
+}
+
+.outer .wrapper .flip-container-left .flipper .btn-prev,
+.outer .wrapper .flip-container-right .flipper .btn-prev {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.outer .wrapper .flip-container-left .flipper .btn-next,
+.outer .wrapper .flip-container-right .flipper .btn-next {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.outer .wrapper .flip-container-left .flipper .btn-prev,
+.outer .wrapper .flip-container-left .flipper .btn-next,
+.outer .wrapper .flip-container-right .flipper .btn-prev,
+.outer .wrapper .flip-container-right .flipper .btn-next {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+}
+
+.outer .wrapper .flip-container-left .flipper .select-month,
+.outer .wrapper .flip-container-right .flipper .select-month {
+  height: 3rem;
+  cursor: pointer;
+  font-family: "Euclid";
+  font-size: 17px;
+  font-weight: 500;
+  border: none;
+}
+
+.outer .wrapper .flip-container-left .front-right,
+.outer .wrapper .flip-container-left .back-right,
+.outer .wrapper .flip-container-right .front-right,
+.outer .wrapper .flip-container-right .back-right {
+  border-radius: 0.5rem;
+}
+
+.outer .flip-container-right .toggle {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.outer .flip-container-right .flipper {
+  -webkit-transition: 1s ease-in;
+  transition: 1s ease-in;
+}
+
+.outer .flip-container-right .flipper .front {
+  border: 1px solid #eee;
+  padding: 1rem;
+}
+
+.outer .flip-container-right .flipper .front * {
+  overflow: hidden;
+}
+
+.outer .flip-container-right .flipper .front .container-date-picker {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.outer .flip-container-right .flipper .front .container-day {
+  margin-bottom: 1rem;
+  display: -ms-grid;
+  display: grid;
+  text-align: center;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: (3rem)[7];
+      grid-template-columns: repeat(7, 3rem);
+}
+
+.outer .flip-container-right .flipper .front .container-day .weekday {
+  color: #b46c5f;
+}
+
+.outer .flip-container-right .flipper .front .container-day .weekday,
+.outer .flip-container-right .flipper .front .container-day .day-block {
+  height: 2rem;
+  font-weight: 400;
+  margin: 0.25rem;
+}
+
+.outer .flip-container-right .flipper .front .container-day .day-block {
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.outer .flip-container-right .flipper .front .container-day .day-block .inner {
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.outer .flip-container-right .flipper .front .container-day .active {
+  background-color: #50c493;
+  border-radius: 0.3rem;
+  color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+  .outer {
+    margin: 1.5rem 0 3rem 0;
+  }
+  .outer .wrapper {
+    margin: 0 auto;
+    padding: 0;
+  }
+  .outer .wrapper .flip-container-left .flipper,
+  .outer .wrapper .flip-container-right .flipper {
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    position: relative;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  .outer .wrapper .flip-container-left .flipper .btn,
+  .outer .wrapper .flip-container-right .flipper .btn {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .outer .wrapper .flip-container-left .flipper .btn:hover,
+  .outer .wrapper .flip-container-right .flipper .btn:hover {
+    opacity: 0.5;
+  }
+  .outer .wrapper .flip-container-left .flipper .btn-prev,
+  .outer .wrapper .flip-container-left .flipper .btn-next,
+  .outer .wrapper .flip-container-right .flipper .btn-prev,
+  .outer .wrapper .flip-container-right .flipper .btn-next {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+  }
+  .outer .wrapper .flip-container-left .flipper .select-month,
+  .outer .wrapper .flip-container-right .flipper .select-month {
+    height: 3rem;
+    cursor: pointer;
+    font-family: "Euclid";
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+  }
+  .outer .wrapper .flip-container-left .front-right,
+  .outer .wrapper .flip-container-left .back-right,
+  .outer .wrapper .flip-container-right .front-right,
+  .outer .wrapper .flip-container-right .back-right {
+    border-radius: 0.5rem;
+  }
+  .outer .flip-container-right .flipper .front {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+  .outer .flip-container-right .flipper .front * {
+    overflow: hidden;
+  }
+}
+/*# sourceMappingURL=cal.css.map */
