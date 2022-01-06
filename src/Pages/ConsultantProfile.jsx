@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import userInfo from "../Data/user.json"
-import { CertificationList } from "../Components/CertificationList"
-import { ArrowChevron, Facebook, Instagram, Star, Twitter } from "../Assets/SVGs/icons"
+import styled from "styled-components";
+import userInfo from "../Data/user.json";
+import { CertificationList } from "../Components/CertificationList";
+import { ArrowChevron, Facebook, Instagram, Star, Twitter } from "../Assets/SVGs/icons";
 
 export const ConsultantProfile = () => {
   return (

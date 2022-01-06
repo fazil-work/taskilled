@@ -1,14 +1,14 @@
 import styled from "styled-components";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import UserSettings from "./Pages/UserSettings";
 import { Navbar } from "./Components/Navbar";
 import { Sidebar } from "./Components/Sidebar";
 import { Footer } from "./Components/Footer";
+import { Notifications } from "./Components/Notifications";
+import { UserSettings } from "./Pages/UserSettings";
 import { ConsultantProfile } from "./Pages/ConsultantProfile";
 import { ConsultantAssignments } from "./Pages/ConsultantAssignments";
 import { CreateAssignment } from "./Pages/CreateAssignment";
-import { Notifications } from "./Components/Notifications";
-import { useEffect } from "react";
 
 function ScrollToTop() {
   const { pathname } = useLocation();

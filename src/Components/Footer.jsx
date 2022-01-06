@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo from "../Assets/SVGs/logo.svg"
+import logo from "../Assets/SVGs/logo.svg";
+import { Link } from "react-router-dom";
 import { Email, Facebook, Instagram, Location, Phone, Twitter, Youtube } from "../Assets/SVGs/icons";
 
 export const Footer = ({extended}) => {

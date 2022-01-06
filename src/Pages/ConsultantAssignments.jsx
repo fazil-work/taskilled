@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"
-import assignments from "../Assets/SVGs/assignments.svg"
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import assignments from "../Assets/SVGs/assignments.svg";
 
 export const ConsultantAssignments = () => {
   return (

@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import userInfo from "../Data/user.json"
-import { Gallery, Money, Task, LogOut, Settings } from "../Assets/SVGs/icons"
-import { Link, useLocation } from "react-router-dom"
+import styled from "styled-components";
+import userInfo from "../Data/user.json";
+import { Link, useLocation } from "react-router-dom";
+import { Gallery, Money, Task, LogOut, Settings } from "../Assets/SVGs/icons";
 
 export const Sidebar = () => {
 

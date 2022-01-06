@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import userInfo from "../Data/user.json"
+import userInfo from "../Data/user.json";
 
 export const CertificationList = () => {
   return (

@@ -1,8 +1,8 @@
 import userInfo from "../Data/user.json";
 import logo from "../Assets/SVGs/logo.svg";
 import styled from "styled-components";
-import { Notification, Search } from "../Assets/SVGs/icons";
 import { Link } from "react-router-dom";
+import { Notification, Search } from "../Assets/SVGs/icons";
 
 export const Navbar = () => {
   return (

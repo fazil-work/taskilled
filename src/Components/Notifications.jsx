@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"
-import { Arrow } from "../Assets/SVGs/icons"
-import NotificationBig from "../Assets/SVGs/notificationBig.svg"
+import styled from "styled-components";
+import NotificationBig from "../Assets/SVGs/notificationBig.svg";
+import { Link } from "react-router-dom";
+import { Arrow } from "../Assets/SVGs/icons";
 
 export const Notifications = () => {
   return (

@@ -1,7 +1,7 @@
 import { Certifications } from "../Components/UserSettingsComponents/Certifications";
 import { EditUserInfo } from "../Components/UserSettingsComponents/EditUserInfo";
 
-const UserSettings = () => {
+export const UserSettings = () => {
   return (
     <div>
       <EditUserInfo />
@@ -9,5 +9,3 @@ const UserSettings = () => {
     </div>
   );
 };
-
-export default UserSettings;
