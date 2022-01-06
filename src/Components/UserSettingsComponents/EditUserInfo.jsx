@@ -57,11 +57,11 @@ export const EditUserInfo = () => {
           <p className="error">{errors.firstName?.message}</p>
           <p className="error">{errors.lastName?.message}</p>
           <div>
-            <div class="selectdiv ">
+            <div className="selectdiv ">
               <label>
                   <select name="occupation" {...register("occupation")}>
                     <option label="" value="">Peşə</option>
-                    <option selected label="" value="UX Designer">UX Designer</option>
+                    <option label="" defaultValue="UX Designer">UX Designer</option>
                   </select>
                   <span>{ArrowChevron(0.9)}</span>
               </label>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import UserSettings from "./Pages/UserSettings";
 import { Navbar } from "./Components/Navbar";
 import { Sidebar } from "./Components/Sidebar";
@@ -8,10 +8,22 @@ import { ConsultantProfile } from "./Pages/ConsultantProfile";
 import { ConsultantAssignments } from "./Pages/ConsultantAssignments";
 import { CreateAssignment } from "./Pages/CreateAssignment";
 import { Notifications } from "./Components/Notifications";
+import { useEffect } from "react";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <GlobalStyle>
         <Routes>
           <Route

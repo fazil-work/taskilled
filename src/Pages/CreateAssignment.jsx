@@ -331,7 +331,7 @@ const AssignmentStyle = styled.div`
       }
     }
   }
-  @media screen and (max-width:800px){
+  @media screen and (max-width:1024px){
     .header{
       display: flex;
       justify-content: space-between;
