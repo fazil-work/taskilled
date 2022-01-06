@@ -94,18 +94,24 @@ const GlobalStyle = styled.div`
     display: grid;
     grid-template-columns: 1fr 3.2fr;
     grid-gap: 2rem;
-    margin: 2rem 7rem 9rem 7rem;
+    margin: 2rem auto 9rem auto;
+    width: 84%;
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1114px) {
     .mid {
-      /* display: block; */
       grid-template-columns: 1fr;
       grid-gap: 2rem;
-      margin: 2rem 1rem;
+      margin: 2rem auto 9rem auto;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .mid {
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
+      margin: 2rem auto;
       div:nth-child(1) {
         order: 2;
       }
-      /* margin-left: -10rem; */
     }
   }
 `;
