@@ -57,6 +57,7 @@ input {
   font-size: 17px;
   font-weight: 500;
   border: none;
+  background: none;
 }
 
 .outer .wrapper .flip-container-left .front-right,

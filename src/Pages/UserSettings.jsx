@@ -1,3 +1,4 @@
+import React from "react";
 import { Certifications } from "../Components/UserSettingsComponents/Certifications";
 import { EditUserInfo } from "../Components/UserSettingsComponents/EditUserInfo";
 

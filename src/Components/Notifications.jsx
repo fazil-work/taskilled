@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import NotificationBig from "../Assets/SVGs/notificationBig.svg";
 import { Link } from "react-router-dom";

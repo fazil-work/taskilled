@@ -88,7 +88,7 @@ class RightBlock extends React.Component {
 		}
 	};
 	updateYear = event => {
-		if (event.target.value.length == 4) {
+		if (event.target.value.length === 4) {
 			this.handleToUpdateDate(this.state.selectedDay + "/" + this.state.selectedMonth + "/" + event.target.value);
 			this.setState({
 				selectedYear: parseInt(event.target.value),
@@ -123,7 +123,7 @@ class RightBlock extends React.Component {
 				<div
 					data-id={i}
 					onClick={this.handleClick}
-					className={`day-block ${i == this.state.selectedDay ? "active" : ""}`}
+					className={`day-block ${i === this.state.selectedDay ? "active" : ""}`}
 				>
 					<div className="inner">{i}</div>
 				</div>
@@ -138,7 +138,7 @@ class RightBlock extends React.Component {
 			<option
 				className="option-month"
 				selected={
-					month == Object.keys(arrMonth)[this.state.selectedMonth] ? "selected" : ""
+					month === Object.keys(arrMonth)[this.state.selectedMonth] ? "selected" : ""
 				}
 			>
 				{month}

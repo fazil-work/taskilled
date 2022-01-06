@@ -1,3 +1,4 @@
+import React from "react";
 import userInfo from "../Data/user.json";
 import logo from "../Assets/SVGs/logo.svg";
 import styled from "styled-components";

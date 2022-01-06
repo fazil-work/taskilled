@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import userInfo from "../../Data/user.json"
 import FileUploader from "../FileUploader";
