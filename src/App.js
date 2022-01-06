@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserSettings from "./Pages/UserSettings";
 import { Navbar } from "./Components/Navbar";
 import { Sidebar } from "./Components/Sidebar";
 import { Footer } from "./Components/Footer";
 import { ConsultantProfile } from "./Pages/ConsultantProfile";
 import { ConsultantAssignments } from "./Pages/ConsultantAssignments";
-import { Home } from "./Pages/Home";
-import { CreateAssignment } from "./Components/CreateAssignment";
+import { CreateAssignment } from "./Pages/CreateAssignment";
 import { Notifications } from "./Components/Notifications";
 
 function App() {
@@ -20,7 +19,9 @@ function App() {
             element={
               <>
                 <Navbar />
-                <Home />
+                <div className="mid">
+                  <Sidebar />
+                </div>
                 <Footer extended />
               </>
             }

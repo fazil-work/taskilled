@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { ArrowChevron, BookSaved, Chart, Eye1, Gallery2, Receipt, Star, Text, User, Video } from "../Assets/SVGs/icons"
-import { Calendar } from "./Calendar/Calendar"
+import { Calendar } from "../Components/Calendar/Calendar"
 
 export const CreateAssignment = () => {
   return (
