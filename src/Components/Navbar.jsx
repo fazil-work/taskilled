@@ -103,6 +103,7 @@ const NavbarStyle = styled.div`
       padding: .5rem 0rem;
       border-radius: 0.6rem;
       margin: .6rem 0;
+      margin-left: 5rem;
       span{
         padding: .3rem 1.5rem 0.1rem 1.2rem;
       }
