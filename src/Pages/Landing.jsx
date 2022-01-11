@@ -87,7 +87,7 @@ const FirstPartStyle = styled.div`
   grid-template-columns: 2fr 1fr;
   grid-gap: 0;
   margin-bottom: 18rem;
-  padding-top: 5rem;
+  padding-top: 4.5rem;
   p{
     font-size: 17px;
     line-height: 1.5;
@@ -760,7 +760,7 @@ const Newsletter = () => {
       <div className="wrapper">
         <div className="img">
         </div>
-        <div className="aaa">
+        <div className="inside">
           <h2>Sign up to our newsletter</h2>
           <h3>Recieve latest news, updates and other news</h3>
           <div>
@@ -790,19 +790,20 @@ const NewsletterStyle = styled.div`
       width: 100%;
       height: 500px;
     }
-    .aaa{
+    .inside{
       margin-top: -27rem;
       h2{
         color: #4f4f4f;
       }
       h3{
         color: #828282;
-        font-weight: 500;
+        font-weight: 400;
+        font-size: 20px;
       }
       div{
         margin-top: 3rem;
         input{
-          font-weight: 500;
+          font-weight: 400;
           border: none;
           background: #fff;
           margin: .25rem;
@@ -813,7 +814,7 @@ const NewsletterStyle = styled.div`
         }
         button{
           font-family: "Euclid";
-          font-weight: 500;
+          font-weight: 400;
           padding: 1rem;
           border: none;
           background: #ffe01b;
@@ -839,7 +840,7 @@ const NewsletterStyle = styled.div`
       .img{
         display: none;
       }
-      .aaa{
+      .inside{
         margin-top: 0;
         h2{
           color: #4f4f4f;
@@ -853,9 +854,12 @@ const NewsletterStyle = styled.div`
         }
         div{
           display: flex;
+          flex-wrap: wrap;
           justify-content: center;
           align-items: center;
-          margin-top: 3rem;
+          width: 90%;
+          margin: 0 auto;
+          margin-top: 2rem;
           input{
             font-weight: 500;
             border: none;
@@ -863,7 +867,8 @@ const NewsletterStyle = styled.div`
             margin: .25rem;
             padding: 1rem;
             border-radius: 0.4rem;
-            min-width: auto;
+            min-width: 160px;
+            width: 50%;
             font-family: "Euclid";
           }
           button{

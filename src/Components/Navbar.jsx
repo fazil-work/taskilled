@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import userInfo from "../Data/user.json";
 import logo from "../Assets/SVGs/logo.svg";
 import styled from "styled-components";
@@ -6,35 +6,55 @@ import { Link } from "react-router-dom";
 import { Notification, Search, User } from "../Assets/SVGs/icons";
 
 export const Navbar = ({register, searchbar}) => {
+
+  const [showSearchbar, setShowSearchbar] = useState(false)
+
   return (
     <NavbarStyle >
       <div className="wrapper">
         <Link to="/">
           <img className="logo" src={logo} alt="Logo" />
         </Link>
-        <div className="searchBar">
-          <span>{Search(.8, "#2e3a59")}</span>
-          <input type="text" placeholder="Axtarış..."/>
-        </div>
+        {
+          searchbar &&
+          <>
+          {
+            register && <ins className="registerMargin"/>
+          }
+          <div className="searchBar">
+            <span>{Search(.8, "#2e3a59")}</span>
+            <input type="text" placeholder="Axtarış..."/>
+          </div>
+          </>
+        }
         {
           register ?
           <div className="register">
             <a href="">Daxil ol</a>
             <a href="">Qeydiyyat</a>
             <div className="mobile">
-              <span>{Search(.9)}</span>
+              <span onClick={() => setShowSearchbar(!showSearchbar)}>{Search(.9)}</span>
               <span>{User()}</span>
             </div>
           </div>
           :
           <div className="first">
             <div>
-              <button alt="Search">{Search(.9, "#333")}</button>
+              <button onClick={() => setShowSearchbar(!showSearchbar)} alt="Search">{Search(.95, "#333")}</button>
               <Link to="/notifications">{Notification(1, "#555")}</Link>
               {/* <button alt="Notification">{Notification(1, "#555")}</button> */}
             </div>
             <span></span>
             <Link to="/consultant"><img src={userInfo.image} alt="User profile picture" /></Link>
+          </div>
+        }
+      </div>
+      <div className="searchWrapper">
+        {
+          showSearchbar &&
+          <div className="searchBarMobile">
+            <span>{Search(.8, "#2e3a59")}</span>
+            <input type="text" placeholder="Axtarış..."/>
           </div>
         }
       </div>
@@ -48,7 +68,7 @@ const NavbarStyle = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     margin: 0 auto;
     width: 84%;
     .logo{
@@ -65,6 +85,10 @@ const NavbarStyle = styled.div`
         background-color: #ffe01b;
         padding: .7rem 1.4rem;
         border-radius: 0.5rem;
+        transition: all .1s;
+        &:hover{
+          background-color: #e9ca00;
+        }
       }
       .mobile{
         display: none;
@@ -96,14 +120,17 @@ const NavbarStyle = styled.div`
         border-radius: 100%;
       }
     }
+    .registerMargin{
+      margin-left: -4rem;
+    }
     .searchBar{
       display: flex;
       align-items: center;
       background-color: #edf1f7;
       padding: .5rem 0rem;
       border-radius: 0.6rem;
-      margin: .6rem 0;
-      margin-left: 5rem;
+      margin: .1rem 0;
+      margin-left: -2rem;
       span{
         padding: .3rem 1.5rem 0.1rem 1.2rem;
       }
@@ -127,9 +154,50 @@ const NavbarStyle = styled.div`
       }
     }
   }
+  .searchWrapper{
+    display: none;
+  }
   @media screen and (max-width: 1024px) {
+    .searchWrapper{
+      display: block;
+      background-color: #fff;
+      border-bottom: 1px solid transparent;
+      .searchBarMobile{
+        display: flex;
+        align-items: center;
+        background-color: #f2f2f2;
+        padding: .5rem 0;
+        border-radius: 0.4rem;
+        width: 90%;
+        margin: 0rem auto;
+        margin-bottom: .5rem;
+        span{
+          padding: 0 .8rem;
+        }
+        input{
+          font-family: "Euclid";
+          background: none;
+          border: none;
+          outline: none;
+          font-size: 15px;
+          width: 22rem;
+          ::placeholder{
+            color: #8f9bb3;
+            opacity: 1;
+          }
+          :-ms-input-placeholder{
+            color: #8f9bb3;
+          }
+          ::-ms-input-placeholder{
+            color: #8f9bb3;
+          }
+        }
+      }
+    }
     .wrapper{
       padding: .8rem 1rem;
+      margin-top: .2rem;
+      width: 90%;
       .logo{
         max-height: 1.8rem;
       }
@@ -170,7 +238,7 @@ const NavbarStyle = styled.div`
         }
       }
       .searchBar{
-        /* display: none; */
+        display: none;
       }
     }
   }
@@ -189,6 +257,11 @@ const NavbarStyle = styled.div`
           button{
             padding: 0.25rem;
             margin: 0.25rem;
+          }
+          a{
+            /* margin-top: -.2rem; */
+            /* padding-bottom: -.5rem; */
+            /* border: 1px solid red; */
           }
         }
         img{

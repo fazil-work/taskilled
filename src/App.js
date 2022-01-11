@@ -33,11 +33,8 @@ function App() {
             path="/"
             element={
               <>
-                <Navbar register />
+                <Navbar register searchbar />
                 <Landing />
-                {/* <div className="mid">
-                  <Sidebar />
-                </div> */}
                 <Footer dark="red" extended />
               </>
             }
@@ -46,11 +43,8 @@ function App() {
             path="/home"
             element={
               <>
-                <Navbar />
+                <Navbar searchbar />
                 <Home />
-                {/* <div className="mid">
-                  <Sidebar />
-                </div> */}
                 <Footer dark="red" extended />
               </>
             }
@@ -94,7 +88,7 @@ function App() {
             path="/consultant"
             element={
               <>
-                <Navbar />
+                <Navbar searchbar />
                 <ConsultantProfile />
                 <Footer extended />
               </>

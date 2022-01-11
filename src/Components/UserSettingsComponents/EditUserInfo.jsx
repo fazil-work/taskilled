@@ -17,24 +17,6 @@ const schema = yup.object({
   bio: yup.string(),
 }).required();
 
-// export const SelectX = () => {
-//     const { register, handleSubmit, formState:{ errors } } = useForm({
-//       resolver: yupResolver(schema)
-//     });
-    
-//     return(
-//     <div className="selectdiv ">
-//       <label>
-//           <select name="occupation" {...register("occupation")}>
-//             <option label="" value="">Peşə</option>
-//             <option label="" defaultValue="UX Designer">UX Designer</option>
-//           </select>
-//           <span>{ArrowChevron(0.9)}</span>
-//       </label>
-//     </div>
-//   )
-// }
-
 export const EditUserInfo = () => {
   
   const submitForm = (data) => {

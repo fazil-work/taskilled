@@ -59,7 +59,7 @@ const FooterStyle = styled.div`
     font-size: 17px;
   }
   a {
-    font-size: 15px;
+    font-size: 17px;
     margin-left: 2rem;
     text-decoration: none;
     color: #727272;
@@ -76,14 +76,14 @@ const FooterStyle = styled.div`
       /* margin: 0; */
     }
     div{
-      margin: 3rem 0 2rem 0;
+      margin: 4rem 0 3rem 0;
     }
     .first{
       img{
         margin-top: .5rem;
       }
       div{
-        margin: 2rem 0;
+        margin: 3rem 0;
         a{
           margin: 0;
           margin-right: 2rem;
@@ -94,7 +94,7 @@ const FooterStyle = styled.div`
       display: flex;
       flex-direction: column;
       a{
-        margin: .5rem 0;
+        margin: .6rem 0;
       }
     }
     .forth{
@@ -118,7 +118,7 @@ const FooterStyle = styled.div`
     border-top: 1px solid #eee;
     justify-content: space-between;
     align-items: center;
-    padding: 0.25rem 7rem;
+    padding: 0.6rem 7rem;
   }
   @media screen and (max-width: 800px) {
     display: block;
