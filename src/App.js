@@ -5,11 +5,13 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Navbar } from "./Components/Navbar";
 import { Sidebar } from "./Components/Sidebar";
 import { Footer } from "./Components/Footer";
-import { Notifications } from "./Components/Notifications";
+import { Notifications } from "./Pages/Notifications";
 import { UserSettings } from "./Pages/UserSettings";
 import { ConsultantProfile } from "./Pages/ConsultantProfile";
 import { ConsultantAssignments } from "./Pages/ConsultantAssignments";
 import { CreateAssignment } from "./Pages/CreateAssignment";
+import { Landing } from "./Pages/Landing";
+import { Home } from "./Pages/Home";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -32,10 +34,24 @@ function App() {
             element={
               <>
                 <Navbar />
-                <div className="mid">
+                <Landing />
+                {/* <div className="mid">
                   <Sidebar />
-                </div>
-                <Footer extended />
+                </div> */}
+                <Footer dark="red" extended />
+              </>
+            }
+          />
+          <Route
+            path="/home"
+            element={
+              <>
+                <Navbar />
+                <Home />
+                {/* <div className="mid">
+                  <Sidebar />
+                </div> */}
+                <Footer dark="red" extended />
               </>
             }
           />
@@ -102,7 +118,7 @@ function App() {
 export default App;
 
 const GlobalStyle = styled.div`
-  background-color: #f9f9f9;
+  background-color: #f8f8f8;
   .mid {
     display: grid;
     grid-template-columns: 1fr 3.2fr;

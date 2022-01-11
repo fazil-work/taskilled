@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowChevron } from "../../Assets/SVGs/icons";
 import "./Style/cal.css"
 
-const arrMonth = {
+const objMonth = {
 	Yanvar: 31,
   Fevral: 28,
 	Mart: 31,
@@ -42,7 +42,7 @@ class RightBlock extends React.Component {
 		};
 	}
 	updateMonth = event => {
-		let newMonth = Object.keys(arrMonth).indexOf(event.target.value);
+		let newMonth = Object.keys(objMonth).indexOf(event.target.value);
 		this.handleToUpdateDate(this.state.selectedDay + "/" + newMonth + "/" + this.state.selectedYear);
 		this.setState({
 			selectedMonth: newMonth,
@@ -112,15 +112,16 @@ class RightBlock extends React.Component {
 	getDayBlocks() {
 		let arrNo = [];
 		for (let n = 0; n < this.state.firstDay; n++) {
-			arrNo.push(<div className="day-block" />);
+			arrNo.push(<div key={Math.random()} className="day-block" />);
 		}
 		for (
 			let i = 1;
-			i < Object.values(arrMonth)[this.state.selectedMonth] + 1;
+			i < Object.values(objMonth)[this.state.selectedMonth] + 1;
 			i++
 		) {
 			arrNo.push(
 				<div
+					key={Math.random()}
 					data-id={i}
 					onClick={this.handleClick}
 					className={`day-block ${i === this.state.selectedDay ? "active" : ""}`}
@@ -134,11 +135,12 @@ class RightBlock extends React.Component {
 	render() {
 		this.handleToUpdateDate = this.props.handleToUpdateDate;
 
-		const monthOptions = Object.keys(arrMonth).map(month => (
+		const monthOptions = Object.keys(objMonth).map((month, index) => (
 			<option
+				key={index}
 				className="option-month"
-				selected={
-					month === Object.keys(arrMonth)[this.state.selectedMonth] ? "selected" : ""
+				defaultValue={
+					month === Object.keys(objMonth)[this.state.selectedMonth] ? "selected" : ""
 				}
 			>
 				{month}
@@ -168,8 +170,8 @@ class RightBlock extends React.Component {
 							</button>
 						</div>
 						<div className="container-day">
-							{arrDays.map(day => (
-								<div className="weekday">{day}</div>
+							{arrDays.map((day, index) => (
+								<div key={index} className="weekday">{day}</div>
 							))}
 							{this.getDayBlocks()}
 						</div>

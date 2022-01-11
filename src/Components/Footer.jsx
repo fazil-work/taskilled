@@ -4,9 +4,9 @@ import logo from "../Assets/SVGs/logo.svg";
 import { Link } from "react-router-dom";
 import { Email, Facebook, Instagram, Location, Phone, Twitter, Youtube } from "../Assets/SVGs/icons";
 
-export const Footer = ({extended}) => {
+export const Footer = ({extended, dark}) => {
   return (
-    <FooterStyle>
+    <FooterStyle dark={dark}>
       {extended && 
         <div className="extended">
           <div className="first">
@@ -54,12 +54,12 @@ const FooterStyle = styled.div`
   justify-content: space-between;
   align-items: center;
   color: #727272;
-  background-color: #fff;
+  background-color: ${props => props.dark ? "#f5f5f5" : "#fff"};
   p {
-    font-size: 16px;
+    font-size: 17px;
   }
   a {
-    font-size: 14px;
+    font-size: 15px;
     margin-left: 2rem;
     text-decoration: none;
     color: #727272;

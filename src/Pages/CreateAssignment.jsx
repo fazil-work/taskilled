@@ -78,7 +78,7 @@ export const CreateAssignment = () => {
           </div>
           <div className="inputs">
             <input type="text" placeholder="Tapşırığın başlığı"/>
-            <div class="selectdiv">
+            <div className="selectdiv">
               <label>
                   <select name="occupation">
                     <option label="" value="">Qrupu seç</option>
@@ -87,10 +87,10 @@ export const CreateAssignment = () => {
                   <span>{ArrowChevron(0.9)}</span>
               </label>
             </div>
-            <div class="selectdiv">
+            <div className="selectdiv">
               <label>
                   <select name="occupation">
-                    <option selected label="" value="">Həftəni seç</option>
+                    <option defaultValue label="" value="">Həftəni seç</option>
                     <option label="" value="Back-end Developer">Qrup 1</option>
                     <option label="" value="Back-end Developer">Qrup 2</option>
                     <option label="" value="Back-end Developer">Qrup 3</option>

@@ -31,7 +31,7 @@ export const Navbar = () => {
 };
 
 const NavbarStyle = styled.div`
-    background-color: #fff;
+  background-color: #fff;
   .wrapper{
     display: flex;
     align-items: center;
