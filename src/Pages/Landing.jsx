@@ -798,9 +798,6 @@ const NewsletterStyle = styled.div`
         font-weight: 500;
       }
       div{
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
         margin-top: 3rem;
         input{
           font-weight: 500;
