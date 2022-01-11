@@ -4,7 +4,6 @@ import courses from "../Data/courses.json"
 import { Card } from "../Components/Card"
 import { Filter } from "../Assets/SVGs/icons"
 
-
 export const Home = () => {
   return (
     <HomeStyle>

@@ -3,9 +3,9 @@ import userInfo from "../Data/user.json";
 import logo from "../Assets/SVGs/logo.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Notification, Search } from "../Assets/SVGs/icons";
+import { Notification, Search, User } from "../Assets/SVGs/icons";
 
-export const Navbar = () => {
+export const Navbar = ({register, searchbar}) => {
   return (
     <NavbarStyle >
       <div className="wrapper">
@@ -16,15 +16,27 @@ export const Navbar = () => {
           <span>{Search(.8, "#2e3a59")}</span>
           <input type="text" placeholder="Axtarış..."/>
         </div>
-        <div className="first">
-          <div>
-            <button alt="Search">{Search(.9, "#333")}</button>
-            <Link to="/notifications">{Notification(1, "#555")}</Link>
-            {/* <button alt="Notification">{Notification(1, "#555")}</button> */}
+        {
+          register ?
+          <div className="register">
+            <a href="">Daxil ol</a>
+            <a href="">Qeydiyyat</a>
+            <div className="mobile">
+              <span>{Search(.9)}</span>
+              <span>{User()}</span>
+            </div>
           </div>
-          <span></span>
-          <Link to="/consultant"><img src={userInfo.image} alt="User profile picture" /></Link>
-        </div>
+          :
+          <div className="first">
+            <div>
+              <button alt="Search">{Search(.9, "#333")}</button>
+              <Link to="/notifications">{Notification(1, "#555")}</Link>
+              {/* <button alt="Notification">{Notification(1, "#555")}</button> */}
+            </div>
+            <span></span>
+            <Link to="/consultant"><img src={userInfo.image} alt="User profile picture" /></Link>
+          </div>
+        }
       </div>
     </NavbarStyle>
   );
@@ -39,6 +51,25 @@ const NavbarStyle = styled.div`
     padding: 1rem 0;
     margin: 0 auto;
     width: 84%;
+    .logo{
+      transform: scale(1.05);
+    }
+    .register{
+      a{
+        text-decoration: none;
+        color: #000;
+        margin-left: 2rem;
+        font-weight: 400;
+      }
+      a:nth-child(2){
+        background-color: #ffe01b;
+        padding: .7rem 1.4rem;
+        border-radius: 0.5rem;
+      }
+      .mobile{
+        display: none;
+      }
+    }
     .first {
       display: flex;
       align-items: center;
@@ -71,15 +102,17 @@ const NavbarStyle = styled.div`
       background-color: #edf1f7;
       padding: .5rem 0rem;
       border-radius: 0.6rem;
+      margin: .6rem 0;
       span{
-        padding: .2rem 1.5rem 0 1rem;
+        padding: .3rem 1.5rem 0.1rem 1.2rem;
       }
       input{
         font-family: "Euclid";
         background: none;
         border: none;
         outline: none;
-        width: 20rem;
+        font-size: 15px;
+        width: 22rem;
         ::placeholder{
           color: #8f9bb3;
           opacity: 1;
@@ -98,6 +131,23 @@ const NavbarStyle = styled.div`
       padding: .8rem 1rem;
       .logo{
         max-height: 1.8rem;
+      }
+      .register{
+        a{
+          text-decoration: none;
+          color: #000;
+          margin-left: 1rem;
+          font-weight: 400;
+        }
+        a{
+          display: none;
+        }
+        .mobile{
+          display: block;
+          span{
+            margin-left: 1.5rem;
+          }
+        }
       }
       .first{
         div{

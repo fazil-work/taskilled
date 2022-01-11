@@ -33,7 +33,7 @@ function App() {
             path="/"
             element={
               <>
-                <Navbar />
+                <Navbar register />
                 <Landing />
                 {/* <div className="mid">
                   <Sidebar />

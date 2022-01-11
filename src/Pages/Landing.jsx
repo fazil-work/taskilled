@@ -135,7 +135,6 @@ const FirstPartStyle = styled.div`
           color: #4f4f4f;
           margin: 0 1.2rem;
           font-size: 20px;
-          font-size: 16px;
         }
       }
     }
@@ -204,6 +203,7 @@ const FirstPartStyle = styled.div`
             p{
               color: #4f4f4f;
               margin: 0 1.5rem;
+              font-size: 16px;
             }
           }
         }
@@ -621,6 +621,7 @@ const ForthPartStyle = styled.div`
         display: flex;
         max-width: 300px;
         margin: 0 auto;
+        z-index: 5;
         label{
           width: 100%;
           span{
@@ -633,6 +634,7 @@ const ForthPartStyle = styled.div`
           }
         }
         select{
+          background-color: #fff;
           width: 100%;
           -webkit-appearance: none;
           -moz-appearance: none;
