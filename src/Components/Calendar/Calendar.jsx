@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import { ArrowChevron } from "../../Assets/SVGs/icons";
 import "./Style/cal.css"
 
@@ -16,6 +16,9 @@ const objMonth = {
 	Noyabr: 30,
 	Dekabr: 31
 };
+
+const arrMonth = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun", "İyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"];
+
 const arrDays = [
 	"B",
 	"B.e",
@@ -26,214 +29,141 @@ const arrDays = [
 	"Ş",
 ];
 
-class RightBlock extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			firstDay: new Date(
-				this.props.date.getFullYear() +
-					"-" +
-					(this.props.date.getMonth() + 1) +
-					"-01"
-			).getDay(),
-			selectedYear: this.props.date.getFullYear(),
-			selectedMonth: this.props.date.getMonth(),
-			selectedDay: this.props.date.getDate()
-		};
-	}
-	updateMonth = event => {
-		let newMonth = Object.keys(objMonth).indexOf(event.target.value);
-		this.handleToUpdateDate(this.state.selectedDay + "/" + newMonth + "/" + this.state.selectedYear);
-		this.setState({
-			selectedMonth: newMonth,
-			firstDay: new Date(
-				this.state.selectedYear + "-" + (newMonth + 1) + "-01"
-			).getDay()
-		});
-	};
-	prevMonth = () => {
-		if (this.state.selectedMonth - 1 < 0) {
-			this.handleToUpdateDate(this.state.selectedDay + "/" + 11 + "/" + this.state.selectedYear -1);
-			this.setState(prevState => ({
-				selectedMonth: 11,
-				selectedYear: prevState.selectedYear - 1,
-				firstDay: new Date(prevState.selectedYear - 1 + "-" + "12-01").getDay()
-			}));
+const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
+
+  const [firstDay, setFirstDay] = useState(new Date(date.getFullYear() + "-" + (date.getMonth() + 1) + "-01").getDay())
+  const [selectedYear, setSelectedYear] = useState(date.getFullYear())
+  const [selectedMonth, setSelectedMonth] = useState(date.getMonth())
+  const [selectedDay, setSelectedDay] = useState(date.getDate())
+
+	const prevMonth = () => {
+		if (selectedMonth - 1 < 0) {
+			handleToUpdateDate(selectedDay + "/" + 11 + "/" + selectedYear -1);
+      setSelectedMonth(11)
+      setSelectedYear(selectedYear - 1)
+      setFirstDay(new Date(selectedYear - 1 + "-" + "12-01").getDay())
 		} else {
-			this.handleToUpdateDate(this.state.selectedDay + "/" + this.state.selectedMonth -1 + "/" + this.state.selectedYear);
-			this.setState(prevState => ({
-				selectedMonth: prevState.selectedMonth - 1,
-				firstDay: new Date(
-					this.state.selectedYear + "-" + prevState.selectedMonth + "-01"
-				).getDay()
-			}));
+      handleToUpdateDate(selectedDay + "/" + selectedMonth -1 + "/" + selectedYear);
+      setSelectedMonth(selectedMonth - 1)
+      setFirstDay(new Date(selectedYear + "-" + selectedMonth + "-01").getDay())
 		}
-	};
-	nextMonth = () => {
-		if (this.state.selectedMonth + 1 > 11) {
-			this.handleToUpdateDate(this.state.selectedDay + "/" +0 + "/" + this.state.selectedYear+1);
-			this.setState(prevState => ({
-				selectedMonth: 0,
-				selectedYear: prevState.selectedYear + 1,
-				firstDay: new Date(prevState.selectedYear + 1 + "-" + "01-01").getDay()
-			}));
-		} else {
-			this.handleToUpdateDate(this.state.selectedDay + "/" + this.state.selectedMonth + 1+ "/" + this.state.selectedYear);
-			this.setState(prevState => ({
-				selectedMonth: prevState.selectedMonth + 1,
-				firstDay: new Date(
-					this.state.selectedYear + "-" + (prevState.selectedMonth + 2) + "-01"
-				).getDay()
-			}));
-		}
-	};
-	updateYear = event => {
-		if (event.target.value.length === 4) {
-			this.handleToUpdateDate(this.state.selectedDay + "/" + this.state.selectedMonth + "/" + event.target.value);
-			this.setState({
-				selectedYear: parseInt(event.target.value),
-				firstDay: new Date(
-					parseInt(event.target.value) + "-" + (this.state.selectedMonth + 1) + "-01"
-				).getDay()
-			});
-		} else if (event.target.value.length > 0) {
-			this.setState({
-				selectedYear: parseInt(event.target.value)
-			});
-		}
-	};
-	handleClick = event => {
-		this.handleToUpdateDate(event.currentTarget.dataset.id + "/" + this.state.selectedMonth + "/" + this.state.selectedYear);
-			this.setState({
-			selectedDay: parseInt(event.currentTarget.dataset.id)
-		});
 	};
 
-	getDayBlocks() {
-		let arrNo = [];
-		for (let n = 0; n < this.state.firstDay; n++) {
-			arrNo.push(<div key={Math.random()} className="day-block" />);
+	const nextMonth = () => {
+		if (selectedMonth + 1 > 11) {
+			handleToUpdateDate(selectedDay + "/" +0 + "/" + selectedYear+1);
+      setSelectedMonth(0)
+      setSelectedYear(selectedYear + 1)
+      setFirstDay(new Date(selectedYear + 1 + "-" + "01-01").getDay())
+		} else {
+			handleToUpdateDate(selectedDay + "/" + selectedMonth + 1+ "/" + selectedYear);
+			setSelectedMonth(selectedMonth + 1)
+      setFirstDay(new Date(selectedYear + "-" + (selectedMonth + 2) + "-01").getDay())
 		}
-		for (
-			let i = 1;
-			i < Object.values(objMonth)[this.state.selectedMonth] + 1;
-			i++
-		) {
+	};
+
+	const handleClick = event => {
+		let dateX = (selectedMonth + 1) + "/" + event.currentTarget.dataset.id + "/" + selectedYear;
+		let now = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+		
+		Date.parse(dateX) < Date.parse(now) ? pastDate(true) : pastDate(false)
+		Date.parse(dateX) >= Date.parse(now) && setSelectedDay(parseInt(event.currentTarget.dataset.id));
+		handleToUpdateDate(dateX);
+	};
+
+	function getDayBlocks() {
+		let arrNo = [];
+
+		[...Array(firstDay)].map((day, index) => {
+			arrNo.push(<div key={index} className="dayBlock" />);
+		});
+
+		for (let i = 1; i < Object.values(objMonth)[selectedMonth] + 1; i++) {
 			arrNo.push(
 				<div
 					key={Math.random()}
 					data-id={i}
-					onClick={this.handleClick}
-					className={`day-block ${i === this.state.selectedDay ? "active" : ""}`}
+					onClick={handleClick}
+					className={`dayBlock ${i === selectedDay ? "active" : ""}`}
 				>
 					<div className="inner">{i}</div>
 				</div>
 			);
 		}
+
 		return arrNo;
 	}
-	render() {
-		this.handleToUpdateDate = this.props.handleToUpdateDate;
 
-		const monthOptions = Object.keys(objMonth).map((month, index) => (
-			<option
-				key={index}
-				className="option-month"
-				defaultValue={
-					month === Object.keys(objMonth)[this.state.selectedMonth] ? "selected" : ""
-				}
-			>
-				{month}
-			</option>
-		));
+  return (
+    <div className="flipContainerRight">
+      <div className={`flipper ${toggle ? "" : "toggle"}`}>
+        <div className="front frontRight">
 
-		return (
-			<div className="flip-container-right">
-				<div className={`flipper ${this.props.toggle ? "" : "toggle"}`}>
-					<div className="front front-right">
-						<div className="container-date-picker">
-							<button className="btn btn-prev" onClick={this.prevMonth}>
-								{ArrowChevron(.8)}
-							</button>
-							<select className="select-month" onChange={this.updateMonth}>
-								{monthOptions}
-							</select>
-							{/* <input
-								type="text"
-								className="input-year"
-								onChange={this.updateYear}
-								value={this.state.selectedYear}
-								maxlength="4"
-							/> */}
-							<button className="btn btn-next" onClick={this.nextMonth}>
-								{ArrowChevron(.8)}
-							</button>
-						</div>
-						<div className="container-day">
-							{arrDays.map((day, index) => (
-								<div key={index} className="weekday">{day}</div>
-							))}
-							{this.getDayBlocks()}
-						</div>
-					</div>
-					{/* <div className="back back-right">
-						<div className="container-events">{this.getEvents()} </div>
-					</div> */}
-				</div>
-			</div>
-		);
-	}
-}
+          <div className="containerDatePicker">
+            <button className="btn btnPrev" onClick={prevMonth}>
+              {ArrowChevron(.8)}
+            </button>
+						<p>
+              {arrMonth[selectedMonth]}
+						</p>
+            <button className="btn btnNext" onClick={nextMonth}>
+              {ArrowChevron(.8)}
+            </button>
+          </div>
 
-export class Calendar extends React.Component {
-	constructor(props) {
-		super(props);
-		let date = new Date();
-		this.state = {
-			date: date,
-			toggle: true,
-			eventList: [],
-			selectedDate: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()
-		};
-	}
+          <div className="containerDay">
+            {arrDays.map((day, index) => (
+              <div key={index} className="weekday">{day}</div>
+            ))}
+            {getDayBlocks()}
+          </div>
 
-	handleToUpdate = isToggle => {
-		this.setState({ toggle: isToggle });
-	};
-	handleToUpdateSubmit = (time, event) => {
-		this.setState(prevState => {
-			const list = [...prevState.eventList, [this.state.selectedDate, time, event]];
-			return {
-			eventList: list
-			}
-		});
-	};
-  handleToUpdateDate = (date) =>{
-    this.setState({
-      selectedDate: date
-    });
-  }
-	componentDidMount() {
-		this.timerID = setInterval(this.tick, 1000); //refresh each second
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.timerID);
-	}
-
-	tick = () => {
-		this.setState({
-			date: new Date()
-		});
-	};
-
-	render() {
-		return (
-      <div className="outer calendar">
-        <div className="wrapper">
-          <RightBlock date={this.state.date} toggle={this.state.toggle} handleToUpdateDate={this.handleToUpdateDate} eventList={this.state.eventList}/>
         </div>
       </div>
-		);
-	}
+    </div>
+  )
+}
+
+export const Calendar = () => {
+
+  const [date, setDate] = useState(new Date())
+  const [toggle, setToggle] = useState(true)
+  const [selectedDate, setSelectedDate] = useState([])
+  const [timerID, setTimerID] = useState([])
+  const [pastDate, setPastDate] = useState(false)
+
+  const handleToUpdateDate = (dateX) =>{
+		let now = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()
+
+		if(Date.parse(dateX) > Date.parse(now)){
+			setSelectedDate(date)
+		}
+  }
+
+  const tick = () => {
+    setTimerID(new Date())
+  };
+
+  useEffect(() => {
+    setTimerID(setInterval(tick, 10000))
+    return () => {
+      clearInterval(timerID)
+    }
+  }, [])
+
+  return (
+    <div>
+      <div className="outer calendar">
+        <div className="wrapper">
+          <CalendarLogic
+						date={date}
+						toggle={toggle}
+						handleToUpdateDate={handleToUpdateDate}
+						pastDate={setPastDate}
+					/>
+					{pastDate && <p className='noPastDates'>Keçmiş tarixlərə tapşırıq təyin edə bilməzsiniz</p>}
+        </div>
+      </div>
+    </div>
+  )
 }

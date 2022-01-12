@@ -1,5 +1,5 @@
-$primary-color: #eeeeee;
-$secondary-color: #222;
+$primaryColor: #eeeeee;
+$secondaryColor: #222;
 button:focus,
 select:focus,
 input {
@@ -9,8 +9,12 @@ input {
 .outer {
   margin: 1.5rem 0 3rem 0;
   .wrapper {
-    .flip-container-left,
-    .flip-container-right {
+    .noPastDates {
+      color: red;
+      text-align: center;
+    }
+    .flipContainerLeft,
+    .flipContainerRight {
       .flipper {
         transform-style: preserve-3d;
         position: relative;
@@ -23,19 +27,19 @@ input {
             opacity: 0.5;
           }
         }
-        .btn-prev {
+        .btnPrev {
           transform: rotate(90deg);
         }
-        .btn-next {
+        .btnNext {
           transform: rotate(-90deg);
         }
-        .btn-prev,
-        .btn-next {
+        .btnPrev,
+        .btnNext {
           border: none;
           background: none;
           font-size: 1.5rem;
         }
-        .select-month {
+        .selectMonth {
           height: 3rem;
           cursor: pointer;
           font-family: "Euclid";
@@ -44,16 +48,14 @@ input {
           border: none;
           background: none;
         }
-        // .container-date-picker {
-        // }
       }
-      .front-right,
-      .back-right {
+      .frontRight,
+      .backRight {
         border-radius: 0.5rem;
       }
     }
   }
-  .flip-container-right {
+  .flipContainerRight {
     .toggle {
       transform: rotateX(180deg);
     }
@@ -65,7 +67,7 @@ input {
         * {
           overflow: hidden;
         }
-        .container-date-picker {
+        .containerDatePicker {
           width: 90%;
           margin: 0 auto;
           display: flex;
@@ -74,7 +76,7 @@ input {
           justify-content: space-between;
           margin-bottom: 1rem;
         }
-        .container-day {
+        .containerDay {
           margin-bottom: 1rem;
           display: grid;
           text-align: center;
@@ -86,12 +88,12 @@ input {
             color: #b46c5f;
           }
           .weekday,
-          .day-block {
+          .dayBlock {
             height: 2rem;
             font-weight: 400;
             margin: 0.25rem;
           }
-          .day-block {
+          .dayBlock {
             cursor: pointer;
             transition: 0.2s;
             .inner {
@@ -113,14 +115,12 @@ input {
 }
 @media screen and (max-width: 800px) {
   .outer {
-    // transform: scale(0.9);
     margin: 1.5rem 0 3rem 0;
     .wrapper {
       margin: 0 auto;
-      // margin-left: -1rem;
       padding: 0;
-      .flip-container-left,
-      .flip-container-right {
+      .flipContainerLeft,
+      .flipContainerRight {
         .flipper {
           transform-style: preserve-3d;
           position: relative;
@@ -128,8 +128,6 @@ input {
           margin: 0;
           padding: 0;
           .btn {
-            // width: 0.5rem;
-            // height: 1rem;
             margin: 0;
             padding: 0;
             cursor: pointer;
@@ -137,13 +135,13 @@ input {
               opacity: 0.5;
             }
           }
-          .btn-prev,
-          .btn-next {
+          .btnPrev,
+          .btnNext {
             border: none;
             background: none;
             font-size: 1.5rem;
           }
-          .select-month {
+          .selectMonth {
             height: 3rem;
             cursor: pointer;
             font-family: "Euclid";
@@ -152,13 +150,13 @@ input {
             border: none;
           }
         }
-        .front-right,
-        .back-right {
+        .frontRight,
+        .backRight {
           border-radius: 0.5rem;
         }
       }
     }
-    .flip-container-right {
+    .flipContainerRight {
       .flipper {
         .front {
           border: none;

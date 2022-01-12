@@ -8,49 +8,54 @@ input {
   margin: 1.5rem 0 3rem 0;
 }
 
-.outer .wrapper .flip-container-left .flipper,
-.outer .wrapper .flip-container-right .flipper {
+.outer .wrapper .noPastDates {
+  color: red;
+  text-align: center;
+}
+
+.outer .wrapper .flipContainerLeft .flipper,
+.outer .wrapper .flipContainerRight .flipper {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   position: relative;
   height: inherit;
 }
 
-.outer .wrapper .flip-container-left .flipper .btn,
-.outer .wrapper .flip-container-right .flipper .btn {
+.outer .wrapper .flipContainerLeft .flipper .btn,
+.outer .wrapper .flipContainerRight .flipper .btn {
   width: 2rem;
   height: 2rem;
   cursor: pointer;
 }
 
-.outer .wrapper .flip-container-left .flipper .btn:hover,
-.outer .wrapper .flip-container-right .flipper .btn:hover {
+.outer .wrapper .flipContainerLeft .flipper .btn:hover,
+.outer .wrapper .flipContainerRight .flipper .btn:hover {
   opacity: 0.5;
 }
 
-.outer .wrapper .flip-container-left .flipper .btn-prev,
-.outer .wrapper .flip-container-right .flipper .btn-prev {
+.outer .wrapper .flipContainerLeft .flipper .btnPrev,
+.outer .wrapper .flipContainerRight .flipper .btnPrev {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-.outer .wrapper .flip-container-left .flipper .btn-next,
-.outer .wrapper .flip-container-right .flipper .btn-next {
+.outer .wrapper .flipContainerLeft .flipper .btnNext,
+.outer .wrapper .flipContainerRight .flipper .btnNext {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
 
-.outer .wrapper .flip-container-left .flipper .btn-prev,
-.outer .wrapper .flip-container-left .flipper .btn-next,
-.outer .wrapper .flip-container-right .flipper .btn-prev,
-.outer .wrapper .flip-container-right .flipper .btn-next {
+.outer .wrapper .flipContainerLeft .flipper .btnPrev,
+.outer .wrapper .flipContainerLeft .flipper .btnNext,
+.outer .wrapper .flipContainerRight .flipper .btnPrev,
+.outer .wrapper .flipContainerRight .flipper .btnNext {
   border: none;
   background: none;
   font-size: 1.5rem;
 }
 
-.outer .wrapper .flip-container-left .flipper .select-month,
-.outer .wrapper .flip-container-right .flipper .select-month {
+.outer .wrapper .flipContainerLeft .flipper .selectMonth,
+.outer .wrapper .flipContainerRight .flipper .selectMonth {
   height: 3rem;
   cursor: pointer;
   font-family: "Euclid";
@@ -60,33 +65,33 @@ input {
   background: none;
 }
 
-.outer .wrapper .flip-container-left .front-right,
-.outer .wrapper .flip-container-left .back-right,
-.outer .wrapper .flip-container-right .front-right,
-.outer .wrapper .flip-container-right .back-right {
+.outer .wrapper .flipContainerLeft .frontRight,
+.outer .wrapper .flipContainerLeft .backRight,
+.outer .wrapper .flipContainerRight .frontRight,
+.outer .wrapper .flipContainerRight .backRight {
   border-radius: 0.5rem;
 }
 
-.outer .flip-container-right .toggle {
+.outer .flipContainerRight .toggle {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
 
-.outer .flip-container-right .flipper {
+.outer .flipContainerRight .flipper {
   -webkit-transition: 1s ease-in;
   transition: 1s ease-in;
 }
 
-.outer .flip-container-right .flipper .front {
+.outer .flipContainerRight .flipper .front {
   border: 1px solid #eee;
   padding: 1rem;
 }
 
-.outer .flip-container-right .flipper .front * {
+.outer .flipContainerRight .flipper .front * {
   overflow: hidden;
 }
 
-.outer .flip-container-right .flipper .front .container-date-picker {
+.outer .flipContainerRight .flipper .front .containerDatePicker {
   width: 90%;
   margin: 0 auto;
   display: -webkit-box;
@@ -105,7 +110,7 @@ input {
   margin-bottom: 1rem;
 }
 
-.outer .flip-container-right .flipper .front .container-day {
+.outer .flipContainerRight .flipper .front .containerDay {
   margin-bottom: 1rem;
   display: -ms-grid;
   display: grid;
@@ -121,24 +126,24 @@ input {
       grid-template-columns: repeat(7, 3rem);
 }
 
-.outer .flip-container-right .flipper .front .container-day .weekday {
+.outer .flipContainerRight .flipper .front .containerDay .weekday {
   color: #b46c5f;
 }
 
-.outer .flip-container-right .flipper .front .container-day .weekday,
-.outer .flip-container-right .flipper .front .container-day .day-block {
+.outer .flipContainerRight .flipper .front .containerDay .weekday,
+.outer .flipContainerRight .flipper .front .containerDay .dayBlock {
   height: 2rem;
   font-weight: 400;
   margin: 0.25rem;
 }
 
-.outer .flip-container-right .flipper .front .container-day .day-block {
+.outer .flipContainerRight .flipper .front .containerDay .dayBlock {
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-.outer .flip-container-right .flipper .front .container-day .day-block .inner {
+.outer .flipContainerRight .flipper .front .containerDay .dayBlock .inner {
   -webkit-transition: background-color 1s;
   transition: background-color 1s;
   position: relative;
@@ -147,7 +152,7 @@ input {
           transform: translateY(-50%);
 }
 
-.outer .flip-container-right .flipper .front .container-day .active {
+.outer .flipContainerRight .flipper .front .containerDay .active {
   background-color: #50c493;
   border-radius: 0.3rem;
   color: #fff;
@@ -161,8 +166,8 @@ input {
     margin: 0 auto;
     padding: 0;
   }
-  .outer .wrapper .flip-container-left .flipper,
-  .outer .wrapper .flip-container-right .flipper {
+  .outer .wrapper .flipContainerLeft .flipper,
+  .outer .wrapper .flipContainerRight .flipper {
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
     position: relative;
@@ -170,26 +175,26 @@ input {
     margin: 0;
     padding: 0;
   }
-  .outer .wrapper .flip-container-left .flipper .btn,
-  .outer .wrapper .flip-container-right .flipper .btn {
+  .outer .wrapper .flipContainerLeft .flipper .btn,
+  .outer .wrapper .flipContainerRight .flipper .btn {
     margin: 0;
     padding: 0;
     cursor: pointer;
   }
-  .outer .wrapper .flip-container-left .flipper .btn:hover,
-  .outer .wrapper .flip-container-right .flipper .btn:hover {
+  .outer .wrapper .flipContainerLeft .flipper .btn:hover,
+  .outer .wrapper .flipContainerRight .flipper .btn:hover {
     opacity: 0.5;
   }
-  .outer .wrapper .flip-container-left .flipper .btn-prev,
-  .outer .wrapper .flip-container-left .flipper .btn-next,
-  .outer .wrapper .flip-container-right .flipper .btn-prev,
-  .outer .wrapper .flip-container-right .flipper .btn-next {
+  .outer .wrapper .flipContainerLeft .flipper .btnPrev,
+  .outer .wrapper .flipContainerLeft .flipper .btnNext,
+  .outer .wrapper .flipContainerRight .flipper .btnPrev,
+  .outer .wrapper .flipContainerRight .flipper .btnNext {
     border: none;
     background: none;
     font-size: 1.5rem;
   }
-  .outer .wrapper .flip-container-left .flipper .select-month,
-  .outer .wrapper .flip-container-right .flipper .select-month {
+  .outer .wrapper .flipContainerLeft .flipper .selectMonth,
+  .outer .wrapper .flipContainerRight .flipper .selectMonth {
     height: 3rem;
     cursor: pointer;
     font-family: "Euclid";
@@ -197,18 +202,18 @@ input {
     font-weight: 500;
     border: none;
   }
-  .outer .wrapper .flip-container-left .front-right,
-  .outer .wrapper .flip-container-left .back-right,
-  .outer .wrapper .flip-container-right .front-right,
-  .outer .wrapper .flip-container-right .back-right {
+  .outer .wrapper .flipContainerLeft .frontRight,
+  .outer .wrapper .flipContainerLeft .backRight,
+  .outer .wrapper .flipContainerRight .frontRight,
+  .outer .wrapper .flipContainerRight .backRight {
     border-radius: 0.5rem;
   }
-  .outer .flip-container-right .flipper .front {
+  .outer .flipContainerRight .flipper .front {
     border: none;
     margin: 0;
     padding: 0;
   }
-  .outer .flip-container-right .flipper .front * {
+  .outer .flipContainerRight .flipper .front * {
     overflow: hidden;
   }
 }
