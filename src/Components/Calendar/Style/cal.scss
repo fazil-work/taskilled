@@ -9,6 +9,14 @@ input {
 .outer {
   margin: 1.5rem 0 3rem 0;
   .wrapper {
+    .chosenDate {
+      border: 1px solid #eee;
+      border-radius: 0.5rem;
+      text-align: center;
+      margin: 0;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
     .noPastDates {
       color: red;
       text-align: center;

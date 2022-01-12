@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { ArrowChevron } from "../../Assets/SVGs/icons";
 import "./Style/cal.css"
 
@@ -17,17 +17,8 @@ const objMonth = {
 	Dekabr: 31
 };
 
-const arrMonth = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun", "İyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"];
-
-const arrDays = [
-	"B",
-	"B.e",
-	"Ç.a",
-	"Ç",
-	"C.a",
-	"C",
-	"Ş",
-];
+const arrWeekDays = ["B", "B.e", "Ç.a", "Ç", "C.a", "C", "Ş",];
+const arrMonths = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun", "İyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"];
 
 const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
 
@@ -51,7 +42,7 @@ const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
 
 	const nextMonth = () => {
 		if (selectedMonth + 1 > 11) {
-			handleToUpdateDate(selectedDay + "/" +0 + "/" + selectedYear+1);
+			handleToUpdateDate(selectedDay + "/" + 0 + "/" + selectedYear+1);
       setSelectedMonth(0)
       setSelectedYear(selectedYear + 1)
       setFirstDay(new Date(selectedYear + 1 + "-" + "01-01").getDay())
@@ -63,7 +54,7 @@ const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
 	};
 
 	const handleClick = event => {
-		let dateX = (selectedMonth + 1) + "/" + event.currentTarget.dataset.id + "/" + selectedYear;
+		let dateX = (selectedMonth + 1 < 10 ? "0" + (selectedMonth + 1) : (selectedMonth + 1)) + "/" + event.currentTarget.dataset.id + "/" + selectedYear;
 		let now = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
 		
 		Date.parse(dateX) < Date.parse(now) ? pastDate(true) : pastDate(false)
@@ -72,26 +63,21 @@ const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
 	};
 
 	function getDayBlocks() {
-		let arrNo = [];
+		let arrDays = [];
 
 		[...Array(firstDay)].map((day, index) => {
-			arrNo.push(<div key={index} className="dayBlock" />);
+			arrDays.push(<div key={index} className="dayBlock" />);
 		});
 
 		for (let i = 1; i < Object.values(objMonth)[selectedMonth] + 1; i++) {
-			arrNo.push(
-				<div
-					key={Math.random()}
-					data-id={i}
-					onClick={handleClick}
-					className={`dayBlock ${i === selectedDay ? "active" : ""}`}
-				>
+			arrDays.push(
+				<div key={Math.random()} data-id={i} onClick={handleClick} className={`dayBlock ${i === selectedDay ? "active" : ""}`}>
 					<div className="inner">{i}</div>
 				</div>
 			);
 		}
 
-		return arrNo;
+		return arrDays;
 	}
 
   return (
@@ -104,7 +90,7 @@ const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
               {ArrowChevron(.8)}
             </button>
 						<p>
-              {arrMonth[selectedMonth]}
+              {arrMonths[selectedMonth]}
 						</p>
             <button className="btn btnNext" onClick={nextMonth}>
               {ArrowChevron(.8)}
@@ -112,7 +98,7 @@ const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
           </div>
 
           <div className="containerDay">
-            {arrDays.map((day, index) => (
+            {arrWeekDays.map((day, index) => (
               <div key={index} className="weekday">{day}</div>
             ))}
             {getDayBlocks()}
@@ -128,28 +114,16 @@ export const Calendar = () => {
 
   const [date, setDate] = useState(new Date())
   const [toggle, setToggle] = useState(true)
-  const [selectedDate, setSelectedDate] = useState([])
-  const [timerID, setTimerID] = useState([])
+  const [selectedDate, setSelectedDate] = useState("")
   const [pastDate, setPastDate] = useState(false)
 
   const handleToUpdateDate = (dateX) =>{
 		let now = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()
 
-		if(Date.parse(dateX) > Date.parse(now)){
-			setSelectedDate(date)
+		if(Date.parse(dateX) >= Date.parse(now)){
+			setSelectedDate(dateX)
 		}
   }
-
-  const tick = () => {
-    setTimerID(new Date())
-  };
-
-  useEffect(() => {
-    setTimerID(setInterval(tick, 10000))
-    return () => {
-      clearInterval(timerID)
-    }
-  }, [])
 
   return (
     <div>
@@ -161,7 +135,9 @@ export const Calendar = () => {
 						handleToUpdateDate={handleToUpdateDate}
 						pastDate={setPastDate}
 					/>
-					{pastDate && <p className='noPastDates'>Keçmiş tarixlərə tapşırıq təyin edə bilməzsiniz</p>}
+					{console.log(selectedDate)}
+					{(!pastDate && selectedDate) && <h3 className='chosenDate'>{selectedDate}</h3>}
+					{pastDate && <p className='noPastDates chosenDate'>Keçmiş tarixlərə tapşırıq təyin edə bilməzsiniz</p>}
         </div>
       </div>
     </div>
