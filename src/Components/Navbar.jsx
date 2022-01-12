@@ -42,7 +42,6 @@ export const Navbar = ({register, searchbar}) => {
             <div>
               <button onClick={() => setShowSearchbar(!showSearchbar)} alt="Search">{Search(.95, "#333")}</button>
               <Link to="/notifications">{Notification(1, "#555")}</Link>
-              {/* <button alt="Notification">{Notification(1, "#555")}</button> */}
             </div>
             <span></span>
             <Link to="/consultant"><img src={userInfo.image} alt="User profile picture" /></Link>
@@ -221,9 +220,6 @@ const NavbarStyle = styled.div`
       .first{
         div{
           margin: 0 .8rem;
-          button:nth-child(1){
-            /* display: inline; */
-          }
           button{
             padding: 0.25rem;
             margin: 0.25rem;
@@ -257,11 +253,6 @@ const NavbarStyle = styled.div`
           button{
             padding: 0.25rem;
             margin: 0.25rem;
-          }
-          a{
-            /* margin-top: -.2rem; */
-            /* padding-bottom: -.5rem; */
-            /* border: 1px solid red; */
           }
         }
         img{

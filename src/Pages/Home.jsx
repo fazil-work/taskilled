@@ -68,6 +68,7 @@ export const Home = () => {
           </div>
         }
       </div>
+      
       <div className="wrapperCourses">
         <div className="courses">
           {

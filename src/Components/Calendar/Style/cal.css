@@ -22,85 +22,64 @@ input {
   text-align: center;
 }
 
-.outer .wrapper .flipContainerLeft .flipper,
-.outer .wrapper .flipContainerRight .flipper {
+.outer .wrapper .flipContainer .flipper {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   position: relative;
   height: inherit;
 }
 
-.outer .wrapper .flipContainerLeft .flipper .btn,
-.outer .wrapper .flipContainerRight .flipper .btn {
+.outer .wrapper .flipContainer .flipper .btn {
   width: 2rem;
   height: 2rem;
   cursor: pointer;
 }
 
-.outer .wrapper .flipContainerLeft .flipper .btn:hover,
-.outer .wrapper .flipContainerRight .flipper .btn:hover {
+.outer .wrapper .flipContainer .flipper .btn:hover {
   opacity: 0.5;
 }
 
-.outer .wrapper .flipContainerLeft .flipper .btnPrev,
-.outer .wrapper .flipContainerRight .flipper .btnPrev {
+.outer .wrapper .flipContainer .flipper .btnPrev {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-.outer .wrapper .flipContainerLeft .flipper .btnNext,
-.outer .wrapper .flipContainerRight .flipper .btnNext {
+.outer .wrapper .flipContainer .flipper .btnNext {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
 
-.outer .wrapper .flipContainerLeft .flipper .btnPrev,
-.outer .wrapper .flipContainerLeft .flipper .btnNext,
-.outer .wrapper .flipContainerRight .flipper .btnPrev,
-.outer .wrapper .flipContainerRight .flipper .btnNext {
+.outer .wrapper .flipContainer .flipper .btnPrev,
+.outer .wrapper .flipContainer .flipper .btnNext {
   border: none;
   background: none;
   font-size: 1.5rem;
 }
 
-.outer .wrapper .flipContainerLeft .flipper .selectMonth,
-.outer .wrapper .flipContainerRight .flipper .selectMonth {
-  height: 3rem;
-  cursor: pointer;
-  font-family: "Euclid";
-  font-size: 17px;
-  font-weight: 500;
-  border: none;
-  background: none;
-}
-
-.outer .wrapper .flipContainerLeft .frontRight,
-.outer .wrapper .flipContainerLeft .backRight,
-.outer .wrapper .flipContainerRight .frontRight,
-.outer .wrapper .flipContainerRight .backRight {
+.outer .wrapper .flipContainer .frontRight {
   border-radius: 0.5rem;
 }
 
-.outer .flipContainerRight .toggle {
+.outer .flipContainer .toggle {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
 
-.outer .flipContainerRight .flipper {
+.outer .flipContainer .flipper {
   -webkit-transition: 1s ease-in;
   transition: 1s ease-in;
 }
 
-.outer .flipContainerRight .flipper .front {
+.outer .flipContainer .flipper .front {
   border: 1px solid #eee;
   padding: 1rem;
 }
 
-.outer .flipContainerRight .flipper .front * {
+.outer .flipContainer .flipper .front * {
   overflow: hidden;
 }
 
-.outer .flipContainerRight .flipper .front .containerDatePicker {
+.outer .flipContainer .flipper .front .containerDatePicker {
   width: 90%;
   margin: 0 auto;
   display: -webkit-box;
@@ -119,7 +98,7 @@ input {
   margin-bottom: 1rem;
 }
 
-.outer .flipContainerRight .flipper .front .containerDay {
+.outer .flipContainer .flipper .front .containerDay {
   margin-bottom: 1rem;
   display: -ms-grid;
   display: grid;
@@ -135,24 +114,24 @@ input {
       grid-template-columns: repeat(7, 3rem);
 }
 
-.outer .flipContainerRight .flipper .front .containerDay .weekday {
+.outer .flipContainer .flipper .front .containerDay .weekday {
   color: #b46c5f;
 }
 
-.outer .flipContainerRight .flipper .front .containerDay .weekday,
-.outer .flipContainerRight .flipper .front .containerDay .dayBlock {
+.outer .flipContainer .flipper .front .containerDay .weekday,
+.outer .flipContainer .flipper .front .containerDay .dayBlock {
   height: 2rem;
   font-weight: 400;
   margin: 0.25rem;
 }
 
-.outer .flipContainerRight .flipper .front .containerDay .dayBlock {
+.outer .flipContainer .flipper .front .containerDay .dayBlock {
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-.outer .flipContainerRight .flipper .front .containerDay .dayBlock .inner {
+.outer .flipContainer .flipper .front .containerDay .dayBlock .inner {
   -webkit-transition: background-color 1s;
   transition: background-color 1s;
   position: relative;
@@ -161,7 +140,7 @@ input {
           transform: translateY(-50%);
 }
 
-.outer .flipContainerRight .flipper .front .containerDay .active {
+.outer .flipContainer .flipper .front .containerDay .active {
   background-color: #50c493;
   border-radius: 0.3rem;
   color: #fff;
@@ -175,8 +154,7 @@ input {
     margin: 0 auto;
     padding: 0;
   }
-  .outer .wrapper .flipContainerLeft .flipper,
-  .outer .wrapper .flipContainerRight .flipper {
+  .outer .wrapper .flipContainer .flipper {
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
     position: relative;
@@ -184,45 +162,29 @@ input {
     margin: 0;
     padding: 0;
   }
-  .outer .wrapper .flipContainerLeft .flipper .btn,
-  .outer .wrapper .flipContainerRight .flipper .btn {
+  .outer .wrapper .flipContainer .flipper .btn {
     margin: 0;
     padding: 0;
     cursor: pointer;
   }
-  .outer .wrapper .flipContainerLeft .flipper .btn:hover,
-  .outer .wrapper .flipContainerRight .flipper .btn:hover {
+  .outer .wrapper .flipContainer .flipper .btn:hover {
     opacity: 0.5;
   }
-  .outer .wrapper .flipContainerLeft .flipper .btnPrev,
-  .outer .wrapper .flipContainerLeft .flipper .btnNext,
-  .outer .wrapper .flipContainerRight .flipper .btnPrev,
-  .outer .wrapper .flipContainerRight .flipper .btnNext {
+  .outer .wrapper .flipContainer .flipper .btnPrev,
+  .outer .wrapper .flipContainer .flipper .btnNext {
     border: none;
     background: none;
     font-size: 1.5rem;
   }
-  .outer .wrapper .flipContainerLeft .flipper .selectMonth,
-  .outer .wrapper .flipContainerRight .flipper .selectMonth {
-    height: 3rem;
-    cursor: pointer;
-    font-family: "Euclid";
-    font-size: 17px;
-    font-weight: 500;
-    border: none;
-  }
-  .outer .wrapper .flipContainerLeft .frontRight,
-  .outer .wrapper .flipContainerLeft .backRight,
-  .outer .wrapper .flipContainerRight .frontRight,
-  .outer .wrapper .flipContainerRight .backRight {
+  .outer .wrapper .flipContainer .frontRight {
     border-radius: 0.5rem;
   }
-  .outer .flipContainerRight .flipper .front {
+  .outer .flipContainer .flipper .front {
     border: none;
     margin: 0;
     padding: 0;
   }
-  .outer .flipContainerRight .flipper .front * {
+  .outer .flipContainer .flipper .front * {
     overflow: hidden;
   }
 }

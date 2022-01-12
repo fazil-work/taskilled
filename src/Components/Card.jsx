@@ -1,37 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import { Manat, StarFilled } from "../Assets/SVGs/icons"
+import { Manat } from "../Assets/SVGs/icons"
+import { CountStars } from "./CountStars"
 
 export const Card = ({course}) => {
-
-  function CountStars(rating){
-
-    let fullStars = rating
-    let emptyStars = 5 - rating
-    let template = []
-
-    for(let i = 0; i < fullStars; i++){
-      template.push("f")
-    }
-
-    for(let i = 0; i < emptyStars; i++){
-      template.push("e")
-    }
-
-    return (
-      <div className="stars">
-        {
-          template.map((i, index) => {
-            return(
-              <p key={index}>{i === "f" ? StarFilled(.75, "#f2c94c", "#f2c94c") : StarFilled(.75, "#f2c94c")}</p>
-            )
-          })
-        }
-      </div>
-    )
-  }
-
   return (
     <CardStyle>
       <div className="cardWrapper">
@@ -47,7 +20,7 @@ export const Card = ({course}) => {
               </div>
               <div>
                 <p>{course.teacherName}</p>
-                {CountStars(Math.floor(course.rating))}
+                <CountStars rating={course.rating}/>
               </div>
             </div>
             <div className="price">
@@ -77,6 +50,9 @@ const CardStyle = styled.div`
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding-bottom: 0.4rem;
+    :hover{
+      background-color: #ddd;
+    }
     .courseImage{
       display: flex;
       margin: 0.5rem;
@@ -130,11 +106,6 @@ const CardStyle = styled.div`
           font-weight: 400;
         }
       }
-    }
-  }
-  &:hover{
-    .cardWrapper{
-      background-color: #ddd;
     }
   }
   @media screen and (max-width:1024px){

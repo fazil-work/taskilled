@@ -81,7 +81,7 @@ const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
 	}
 
   return (
-    <div className="flipContainerRight">
+    <div className="flipContainer">
       <div className={`flipper ${toggle ? "" : "toggle"}`}>
         <div className="front frontRight">
 
@@ -135,7 +135,6 @@ export const Calendar = () => {
 						handleToUpdateDate={handleToUpdateDate}
 						pastDate={setPastDate}
 					/>
-					{console.log(selectedDate)}
 					{(!pastDate && selectedDate) && <h3 className='chosenDate'>{selectedDate}</h3>}
 					{pastDate && <p className='noPastDates chosenDate'>Keçmiş tarixlərə tapşırıq təyin edə bilməzsiniz</p>}
         </div>

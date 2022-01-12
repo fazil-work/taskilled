@@ -15,7 +15,6 @@ export const ConsultantAssignments = () => {
           <p>Ilk tapşırığınızı əlavə edin</p>
         </div>
         <Link to="/create-assignment">Tapşırıq əlavə et</Link>
-        {/* <button>Tapşırıq əlavə et</button> */}
       </div>
     </AssignmentsStyle>
   )

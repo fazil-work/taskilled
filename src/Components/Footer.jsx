@@ -72,9 +72,6 @@ const FooterStyle = styled.div`
       font-weight: 500;
       color: #4f4f4f;
     }
-    p{
-      /* margin: 0; */
-    }
     div{
       margin: 4rem 0 3rem 0;
     }
@@ -102,7 +99,6 @@ const FooterStyle = styled.div`
         display: flex;
         align-items: center;
         margin: 1.5rem 0;
-        /* border: 1px solid red; */
         span{
           margin-right: 1rem;
           margin-top: .4rem;

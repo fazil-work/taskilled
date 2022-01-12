@@ -21,8 +21,7 @@ input {
       color: red;
       text-align: center;
     }
-    .flipContainerLeft,
-    .flipContainerRight {
+    .flipContainer {
       .flipper {
         transform-style: preserve-3d;
         position: relative;
@@ -47,23 +46,13 @@ input {
           background: none;
           font-size: 1.5rem;
         }
-        .selectMonth {
-          height: 3rem;
-          cursor: pointer;
-          font-family: "Euclid";
-          font-size: 17px;
-          font-weight: 500;
-          border: none;
-          background: none;
-        }
       }
-      .frontRight,
-      .backRight {
+      .frontRight {
         border-radius: 0.5rem;
       }
     }
   }
-  .flipContainerRight {
+  .flipContainer {
     .toggle {
       transform: rotateX(180deg);
     }
@@ -127,8 +116,7 @@ input {
     .wrapper {
       margin: 0 auto;
       padding: 0;
-      .flipContainerLeft,
-      .flipContainerRight {
+      .flipContainer {
         .flipper {
           transform-style: preserve-3d;
           position: relative;
@@ -149,22 +137,13 @@ input {
             background: none;
             font-size: 1.5rem;
           }
-          .selectMonth {
-            height: 3rem;
-            cursor: pointer;
-            font-family: "Euclid";
-            font-size: 17px;
-            font-weight: 500;
-            border: none;
-          }
         }
-        .frontRight,
-        .backRight {
+        .frontRight {
           border-radius: 0.5rem;
         }
       }
     }
-    .flipContainerRight {
+    .flipContainer {
       .flipper {
         .front {
           border: none;
