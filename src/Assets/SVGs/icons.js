@@ -2089,6 +2089,118 @@ export const BookSaved = (size, color) => {
   );
 };
 
+export const Bars = (size, color) => {
+  return (
+    <svg
+      width={size ? 24 * size : 24}
+      height={size ? 24 * size : 24}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M19 4C18.45 4 18 4.45 18 5V20C18 20.55 18.45 21 19 21C19.55 21 20 20.55 20 20V5C20 4.45 19.55 4 19 4ZM12 8C11.45 8 11 8.45 11 9V20C11 20.55 11.45 21 12 21C12.55 21 13 20.55 13 20V9C13 8.45 12.55 8 12 8ZM4 13C4 12.45 4.45 12 5 12C5.55 12 6 12.45 6 13V20C6 20.55 5.55 21 5 21C4.45 21 4 20.55 4 20V13Z"
+        fill={color ? color : "#000"}
+      />
+    </svg>
+  );
+};
+
+export const Calendar2 = (size, color) => {
+  return (
+    <svg
+      width={size ? 24 * size : 24}
+      height={size ? 24 * size : 24}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 2V5"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 2V5"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3.5 9.09H20.5"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        d="M15.6947 13.7H15.7037"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        d="M15.6947 16.7H15.7037"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        d="M11.9955 13.7H12.0045"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        d="M11.9955 16.7H12.0045"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        d="M8.29431 13.7H8.30329"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        opacity="0.4"
+        d="M8.29395 16.7H8.30293"
+        stroke={color ? color : "#000"}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
 export const G1 = (size, color) => {
   return (
     <svg

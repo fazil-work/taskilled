@@ -28,7 +28,6 @@ export const Sidebar = () => {
 const SidebarStyle = styled.div`
   background-color: #fff;
   padding: 2rem 2rem;
-  /* margin: 0 .5rem; */
   height: fit-content;
   text-align: center;
   border-radius: 0.6rem;

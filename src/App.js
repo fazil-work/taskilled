@@ -1,140 +1,44 @@
 import React from "react";
-import styled from "styled-components";
-import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { Navbar } from "./Components/Navbar";
-import { Sidebar } from "./Components/Sidebar";
-import { Footer } from "./Components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./Pages/Home";
+import { Course } from "./Pages/Course";
+import { Landing } from "./Pages/Landing";
 import { Notifications } from "./Pages/Notifications";
 import { UserSettings } from "./Pages/UserSettings";
 import { ConsultantProfile } from "./Pages/ConsultantProfile";
 import { ConsultantAssignments } from "./Pages/ConsultantAssignments";
 import { CreateAssignment } from "./Pages/CreateAssignment";
-import { Landing } from "./Pages/Landing";
-import { Home } from "./Pages/Home";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
+import {
+  ScrollToTop,
+  ShowFooter,
+  ShowNavbar,
+  ShowSidebar,
+} from "./Components/RouterHelper";
 
 function App() {
+  const sidebarPagesArr = ["/settings", "/assignments"];
+  const noNavbarPagesArr = ["/create-assignment"];
+  const noFooterPagesArr = ["/create-assignment"];
+
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <GlobalStyle>
+      <ShowNavbar pages={noNavbarPagesArr} />
+      <ShowSidebar pages={sidebarPagesArr}>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar register searchbar />
-                <Landing />
-                <Footer dark="red" extended />
-              </>
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <>
-                <Navbar searchbar />
-                <Home />
-                <Footer dark="red" extended />
-              </>
-            }
-          />
-          <Route
-            path="/settings"
-            element={
-              <>
-                <Navbar />
-                <div className="mid">
-                  <Sidebar />
-                  <UserSettings />
-                </div>
-                <Footer extended />
-              </>
-            }
-          />
-          <Route
-            path="/assignments"
-            element={
-              <>
-                <Navbar />
-                <div className="mid">
-                  <Sidebar />
-                  <ConsultantAssignments />
-                </div>
-                <Footer extended />
-              </>
-            }
-          />
-          <Route
-            path="/create-assignment"
-            element={
-              <>
-                <CreateAssignment />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/consultant"
-            element={
-              <>
-                <Navbar searchbar />
-                <ConsultantProfile />
-                <Footer extended />
-              </>
-            }
-          />
-          <Route
-            path="/notifications"
-            element={
-              <>
-                <Navbar />
-                <Notifications />
-              </>
-            }
-          />
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/course" element={<Course />} />
+          <Route path="/settings" element={<UserSettings />} />
+          <Route path="/assignments" element={<ConsultantAssignments />} />
+          <Route path="/create-assignment" element={<CreateAssignment />} />
+          <Route path="/consultant" element={<ConsultantProfile />} />
+          <Route path="/notifications" element={<Notifications />} />
         </Routes>
-      </GlobalStyle>
+      </ShowSidebar>
+      <ShowFooter pages={noFooterPagesArr} />
     </BrowserRouter>
   );
 }
 
 export default App;
-
-const GlobalStyle = styled.div`
-  background-color: #f8f8f8;
-  .mid {
-    display: grid;
-    grid-template-columns: 1fr 3.2fr;
-    grid-gap: 2rem;
-    margin: 2rem auto 9rem auto;
-    width: 84%;
-  }
-  @media screen and (max-width: 1114px) {
-    .mid {
-      grid-template-columns: 1fr;
-      grid-gap: 2rem;
-      margin: 2rem auto 9rem auto;
-    }
-  }
-  @media screen and (max-width: 768px) {
-    .mid {
-      grid-template-columns: 1fr;
-      grid-gap: 2rem;
-      margin: 2rem auto;
-      div:nth-child(1) {
-        order: 2;
-      }
-    }
-  }
-`;
