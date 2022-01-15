@@ -7,6 +7,7 @@ import { UserSettings } from "./Pages/UserSettings";
 import { ConsultantProfile } from "./Pages/ConsultantProfile";
 import { ConsultantAssignments } from "./Pages/ConsultantAssignments";
 import { CreateAssignment } from "./Pages/CreateAssignment";
+import { ErrorPage } from "./Pages/ErrorPage";
 import { ScrollToTop, ShowFooter, ShowNavbar, ShowSidebar } from "./Components/RouterHelper";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/create-assignment" element={<CreateAssignment />} />
           <Route path="/consultant" element={<ConsultantProfile />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </ShowSidebar>
       <ShowFooter pages={noFooterPagesArr} />
