@@ -5,7 +5,7 @@ import { Card } from "../Components/Card"
 import filter from "../Assets/SVGs/candle.svg"
 import { ArrowChevron } from "../Assets/SVGs/icons"
 
-export const Home = () => {
+const Home = () => {
 
   const [filterOpen, setFilterOpen] = useState(false)
 
@@ -84,6 +84,8 @@ export const Home = () => {
     </HomeStyle>
   )
 }
+
+export default Home
 
 const HomeStyle = styled.div`
   button{

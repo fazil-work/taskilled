@@ -18,7 +18,7 @@ import figures1 from "../Assets/SVGs/figures1.svg"
 import figures2 from "../Assets/SVGs/figures2.svg"
 import figures3 from "../Assets/SVGs/figures3.svg"
 
-export const Landing = () => {
+const Landing = () => {
   return (
     <LandingStyle>
       <div className="wrapper">
@@ -31,6 +31,8 @@ export const Landing = () => {
     </LandingStyle>
   )
 }
+
+export default Landing
 
 const LandingStyle = styled.div`
   background-color: #fff;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import assignments from "../Assets/SVGs/assignments.svg";
 
-export const ConsultantAssignments = () => {
+const ConsultantAssignments = () => {
   return (
     <AssignmentsStyle>
       <h2>Tapşırıqlar</h2>
@@ -19,6 +19,8 @@ export const ConsultantAssignments = () => {
     </AssignmentsStyle>
   )
 }
+
+export default ConsultantAssignments
 
 const AssignmentsStyle = styled.div`
   h2{

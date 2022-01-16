@@ -2,7 +2,7 @@ import React from "react";
 import { Certifications } from "../Components/UserSettingsComponents/Certifications";
 import { EditUserInfo } from "../Components/UserSettingsComponents/EditUserInfo";
 
-export const UserSettings = () => {
+const UserSettings = () => {
   return (
     <div>
       <EditUserInfo />
@@ -10,3 +10,5 @@ export const UserSettings = () => {
     </div>
   );
 };
+
+export default UserSettings

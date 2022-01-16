@@ -4,7 +4,7 @@ import NotificationBig from "../Assets/SVGs/notificationBig.svg";
 import { Link } from "react-router-dom";
 import { Arrow } from "../Assets/SVGs/icons";
 
-export const Notifications = () => {
+const Notifications = () => {
   return (
     <NotiStyle>
       <Link to="/courses">
@@ -18,6 +18,8 @@ export const Notifications = () => {
     </NotiStyle>
   )
 }
+
+export default Notifications;
 
 const NotiStyle = styled.div`
   background-color: #fff;

@@ -4,7 +4,7 @@ import userInfo from "../Data/user.json";
 import { CertificationList } from "../Components/CertificationList";
 import { ArrowChevron, Facebook, Instagram, Star, Twitter } from "../Assets/SVGs/icons";
 
-export const ConsultantProfile = () => {
+const ConsultantProfile = () => {
   return (
     <ProfileStyle>
       <div className="wrapper">
@@ -40,6 +40,8 @@ export const ConsultantProfile = () => {
     </ProfileStyle>
   )
 }
+
+export default ConsultantProfile
 
 const ProfileStyle = styled.div`
   background-color: #fff;

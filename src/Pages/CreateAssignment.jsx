@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Calendar } from "../Components/Calendar/Calendar";
 import { ArrowChevron, BookSaved, Chart, Eye1, Gallery2, Receipt, Star, Text, User, Video } from "../Assets/SVGs/icons";
 
-export const CreateAssignment = () => {
+const CreateAssignment = () => {
   return (
     <AssignmentStyle>
       <div className="header">
@@ -113,6 +113,8 @@ export const CreateAssignment = () => {
     </AssignmentStyle>
   )
 }
+
+export default CreateAssignment
 
 const AssignmentStyle = styled.div`
   background-color: #fff;
