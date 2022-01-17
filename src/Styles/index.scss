@@ -34,3 +34,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+* {
+  font-family: "Euclid";
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(126, 126, 126, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(126, 126, 126, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 126, 126, 1);
+}

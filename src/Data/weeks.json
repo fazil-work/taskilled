@@ -1,0 +1,58 @@
+{
+  "Introduction to UX research":[
+    {"materialFormat":"Video", "materialName":"Introduction to UX research", "current":"true"},
+    {"materialFormat":"Quiz", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Reading", "materialName":"Introduction to UX research"}
+  ],
+  "Explore UX research methods":[
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Quiz", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Reading", "materialName":"Introduction to UX research"}
+  ],
+  "The role of research in Design":[
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Quiz", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Reading", "materialName":"Introduction to UX research"}
+  ],
+  "Introduction to UI research":[
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Quiz", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Reading", "materialName":"Introduction to UX research"}
+  ],
+  "Explore UI research methods":[
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Quiz", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Reading", "materialName":"Introduction to UX research"}
+  ],
+  "Understand the role of research in Ash":[
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Quiz", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Reading", "materialName":"Introduction to UX research"}
+  ],
+  "Advanced design patterns":[
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Quiz", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Reading", "materialName":"Introduction to UX research"}
+  ],
+  "The art of Minimalism":[
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Quiz", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Video", "materialName":"Introduction to UX research"},
+    {"materialFormat":"Reading", "materialName":"Introduction to UX research"}
+  ]
+}

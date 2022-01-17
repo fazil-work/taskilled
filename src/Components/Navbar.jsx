@@ -5,13 +5,13 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Notification, Search, User } from "../Assets/SVGs/icons";
 
-export const Navbar = ({register, searchbar}) => {
+export const Navbar = ({register, searchbar, searchIcon, width}) => {
 
   const [showSearchbar, setShowSearchbar] = useState(false)
 
   return (
-    <NavbarStyle >
-      <div className="wrapper">
+    <NavbarStyle>
+      <div className="wrapper" style={{width: width ? width + "%" : "84%"}}>
         <Link to="/">
           <img className="logo" src={logo} alt="Logo" />
         </Link>
@@ -50,7 +50,7 @@ export const Navbar = ({register, searchbar}) => {
       </div>
       <div className="searchWrapper">
         {
-          showSearchbar &&
+          (showSearchbar && !searchIcon) &&
           <div className="searchBarMobile">
             <span>{Search(.8, "#2e3a59")}</span>
             <input type="text" placeholder="Axtarış..."/>
@@ -67,7 +67,7 @@ const NavbarStyle = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
     margin: 0 auto;
     width: 84%;
     .logo{
@@ -114,8 +114,8 @@ const NavbarStyle = styled.div`
         margin: 0 1.6rem 0 .8rem;
       }
       img {
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
         border-radius: 100%;
       }
     }
