@@ -373,4 +373,34 @@ const QuizPartStyle = styled.div`
       }
     }
   }
+  @media screen and (max-width:1024px){
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10rem;
+    h2{
+      margin: 1.5rem 0;
+      font-size: 24px;
+      color: #424242;
+    }
+    .quiz{
+      width: 100%;
+      margin: 0 auto;
+      h2{
+        font-weight: 400;
+        font-size: 20px;
+        margin: 1rem 0 1.7rem 0;
+      }
+      h3{
+        margin-bottom: 2rem;
+        font-size: 16px;
+      }
+      ins{
+        font-size: 14px;
+      }
+      .answerIs{
+        margin: 2.5rem 0;
+      }
+    }
+  }
 `
