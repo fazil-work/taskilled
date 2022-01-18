@@ -10,6 +10,7 @@ import Spinner from "./Components/Spinner";
 
 const Home = lazy(() => import("./Pages/Home"));
 const Landing = lazy(() => import("./Pages/Landing"));
+const Course = lazy(() => import("./Pages/Course"));
 const Notifications = lazy(() => import("./Pages/Notifications"));
 const UserSettings = lazy(() => import("./Pages/UserSettings"));
 const ConsultantProfile = lazy(() => import("./Pages/ConsultantProfile"));
@@ -32,6 +33,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/course" element={<Course />} />
             <Route path="/settings" element={<UserSettings />} />
             <Route path="/week-details" element={<WeekDetails />} />
             <Route path="/assignments" element={<ConsultantAssignments />} />

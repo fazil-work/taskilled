@@ -1,0 +1,17 @@
+[
+  {
+    "materialFormat":"Video", "id":"video", "materialName":"Introduction to UX research", "current":"true"
+  },
+  {
+    "materialFormat":"Quiz", "id":"quiz", "materialName":"Introduction to UX research"
+  },
+  {
+    "materialFormat":"Video", "id":"video2", "materialName":"Introduction to UX research"
+  },
+  {
+    "materialFormat":"Resource", "id":"resource", "materialName":"Introduction to UX research"
+  },
+  {
+    "materialFormat":"Reading", "id":"reading", "materialName":"Introduction to UX research"
+  }
+]

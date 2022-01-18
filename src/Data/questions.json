@@ -1,0 +1,202 @@
+[
+  {
+    "id":1,
+    "question":"Which of the following is a server-side Java Script object?",
+    "a":"Function",
+    "b":"FileUpload",
+    "c":"JSON",
+    "d":"File",
+    "e":"Date",
+    "answer":"d"
+  },
+  {
+    "id":2,
+    "question":"How does Java Script store dates in objects of Date type?",
+    "a":"1st, 1900",
+    "b":"January 1st, 1970",
+    "c":"12/01/1970",
+    "d":"Ash",
+    "e":"1970/12/01",
+    "answer":"c"
+  },
+  {
+    "id":3,
+    "question":"Which of the following is the tainted property of a window object in Java Script?",
+    "a":"Pathname",
+    "b":"Protocol",
+    "c":"Defaultstatus",
+    "d":"Host",
+    "e":"Window",
+    "answer":"c"
+  },
+  {
+    "id":4,
+    "question":"Which attribute needs to be changed to make elements invisible?",
+    "a":"visibility",
+    "b":"visible",
+    "c":"invisibility",
+    "d":"invisilible",
+    "e":"hidden",
+    "answer":"b"
+  },
+  {
+    "id":5,
+    "question":"What language defines the behavior of a web page?",
+    "a":"HTML",
+    "b":"CSS",
+    "c":"XML",
+    "d":"JavaScript",
+    "e":"Super Mario",
+    "answer":"d"
+  },
+  {
+    "id":6,
+    "question":"Which of the following is a server-side Java Script object?",
+    "a":"Function",
+    "b":"FileUpload",
+    "c":"JSON",
+    "d":"File",
+    "e":"Date",
+    "answer":"d"
+  },
+  {
+    "id":7,
+    "question":"How does Java Script store dates in objects of Date type?",
+    "a":"1st, 1900",
+    "b":"January 1st, 1970",
+    "c":"January 1st, 1970",
+    "d":"January 1st, 1970",
+    "e":"Ash",
+    "answer":"c"
+  },
+  {
+    "id":8,
+    "question":"Which of the following is the tainted property of a window object in Java Script?",
+    "a":"Pathname",
+    "b":"Protocol",
+    "c":"Defaultstatus",
+    "d":"Host",
+    "e":"Window",
+    "answer":"c"
+  },
+  {
+    "id":9,
+    "question":"Which attribute needs to be changed to make elements invisible?",
+    "a":"visibility",
+    "b":"visible",
+    "c":"invisibility",
+    "d":"invisilible",
+    "e":"hidden",
+    "answer":"b"
+  },
+  {
+    "id":10,
+    "question":"What language defines the behavior of a web page?",
+    "a":"HTML",
+    "b":"CSS",
+    "c":"XML",
+    "d":"JavaScript",
+    "e":"Super Mario",
+    "answer":"d"
+  },
+  {
+    "id":11,
+    "question":"Which of the following is a server-side Java Script object?",
+    "a":"Function",
+    "b":"FileUpload",
+    "c":"JSON",
+    "d":"File",
+    "e":"Date",
+    "answer":"d"
+  },
+  {
+    "id":12,
+    "question":"How does Java Script store dates in objects of Date type?",
+    "a":"1st, 1900",
+    "b":"January 1st, 1970",
+    "c":"January 1st, 1970",
+    "d":"January 1st, 1970",
+    "e":"Ash",
+    "answer":"c"
+  },
+  {
+    "id":13,
+    "question":"Which of the following is the tainted property of a window object in Java Script?",
+    "a":"Pathname",
+    "b":"Protocol",
+    "c":"Defaultstatus",
+    "d":"Host",
+    "e":"Window",
+    "answer":"c"
+  },
+  {
+    "id":14,
+    "question":"Which attribute needs to be changed to make elements invisible?",
+    "a":"visibility",
+    "b":"visible",
+    "c":"invisibility",
+    "d":"invisilible",
+    "e":"hidden",
+    "answer":"b"
+  },
+  {
+    "id":15,
+    "question":"What language defines the behavior of a web page?",
+    "a":"HTML",
+    "b":"CSS",
+    "c":"XML",
+    "d":"JavaScript",
+    "e":"Super Mario",
+    "answer":"d"
+  },
+  {
+    "id":16,
+    "question":"Which of the following is a server-side Java Script object?",
+    "a":"Function",
+    "b":"FileUpload",
+    "c":"JSON",
+    "d":"File",
+    "e":"Date",
+    "answer":"d"
+  },
+  {
+    "id":17,
+    "question":"How does Java Script store dates in objects of Date type?",
+    "a":"1st, 1900",
+    "b":"January 1st, 1970",
+    "c":"January 1st, 1970",
+    "d":"January 1st, 1970",
+    "e":"Ash",
+    "answer":"c"
+  },
+  {
+    "id":18,
+    "question":"Which of the following is the tainted property of a window object in Java Script?",
+    "a":"Pathname",
+    "b":"Protocol",
+    "c":"Defaultstatus",
+    "d":"Host",
+    "e":"Window",
+    "answer":"c"
+  },
+  {
+    "id":19,
+    "question":"Which attribute needs to be changed to make elements invisible?",
+    "a":"visibility",
+    "b":"visible",
+    "c":"invisibility",
+    "d":"invisilible",
+    "e":"hidden",
+    "answer":"b"
+  },
+  {
+    "id":20,
+    "question":"What language defines the behavior of a web page?",
+    "a":"HTML",
+    "b":"CSS",
+    "c":"XML",
+    "d":"JavaScript",
+    "e":"Super Mario",
+    "answer":"d"
+  }
+]
