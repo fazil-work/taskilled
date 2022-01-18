@@ -138,8 +138,8 @@ const CourseMaterialsStyle = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 1rem;
-        height: 1rem;
+        min-width: 1rem;
+        min-height: 1rem;
         padding: .2rem;
         border-radius: 50%;
         border: 1px solid #555;

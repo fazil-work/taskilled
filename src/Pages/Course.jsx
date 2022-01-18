@@ -94,6 +94,10 @@ function FirstDiv(){
               </div>
             </div>
           <button>Əlavə et</button>
+          <div className="about">
+            <h3>Kurs haqqında</h3>
+            <p>Ready to grow the creative business of your dreams? Whether you’re itching to go full-time freelance or looking for ways to supercharge your existing biz, it’s time to really make it happen. Join freelancer and creative business expert Kaleigh Moore for a live, two-week crash-course where you’ll learn everything you need to set up (and manage!) a thriving creative business that you love. <br /><br /> As a part of this exclusive learning series, you’ll master the most intimidating elements of running a business, gain actionable pricing strategies & techniques that will allow you to charge more for your work, and ultimately gain more confidence as a business owner so you can spend more time focusing on what you do best—creating. <br /><br /> In this first 3-hour course, Kaleigh will get into the nitty gritty of setting up your business for success including strategies for targeting clients, approaching the value conversation, contracts, invoicing, and everything in between. Plus, Kaleigh will equip you with the tools you need to set and present your rates to clients—and most importantly—how to justify the value proposition behind the work that you do. <a href="/">Davamını oxu...</a></p>
+          </div>
         </div>
       </div>
     </FirstDivStyle>
@@ -177,6 +181,9 @@ const FirstDivStyle = styled.div`
     .rightside{
       display: flex;
       flex-direction: column;
+      .about{
+        display: none;
+      }
       .thumbnail{
         display: flex;
         justify-content: right;
@@ -309,6 +316,22 @@ const FirstDivStyle = styled.div`
         }
       }
       .rightside{
+        .about{
+          display: block;
+          h3{
+            font-weight: 500;
+            font-size: 16px;
+            margin: 1.5rem 0;
+          }
+          p{
+            font-size: 16px;
+            line-height: 1.6rem;
+            a{
+              text-decoration: none;
+              color: #2f80ed;
+            }
+          }
+        }
         .thumbnail{
           display: flex;
           justify-content: center;
@@ -525,6 +548,108 @@ const SecondDivStyle = styled.div`
       }
     }
   }
+  @media screen and (max-width:1024px){
+    padding-bottom: 1rem;
+    .wrapper{
+      width: 90%;
+      .pdfDiv{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        padding: .5rem 0 1rem 0;
+        h1{
+          font-size: 20px;
+          margin-bottom: 0rem;
+          margin-top: 2rem;
+        }
+        button{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: .5rem .7rem .5rem .5rem;
+          font-size: 12px;
+          background: #fff;
+          border: none;
+          border-radius: .4rem;
+          font-weight: 500;
+          font-family: "Euclid";
+          transition: .1s all;
+          margin-bottom: -2rem;
+          &:hover{
+            cursor: pointer;
+            background: #aaa; 
+          }
+          img{
+            margin: 0;
+            margin-right: 1rem;
+          }
+        }
+      }
+      .sillabus{
+        background-color: #fff;
+        padding: 0rem 1rem 0 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 15px 5px #00000011;
+        ul{
+          margin-left: -1.5rem;
+          padding-top: .8rem;
+          padding-bottom: 3rem;
+        }
+        a{
+          text-decoration: none;
+          color: #2f80ed;
+        }
+        h3{
+          font-size: 16px;
+          font-weight: 500;
+          margin-bottom: 1.3rem;
+        }
+        p{
+          line-height: 1.6;
+          font-size: 14px;
+          margin-bottom: 2rem;
+        }
+        li:nth-child(1){
+          &::before{
+            margin-top: 1rem;
+            background-color: #ddd;
+          }
+        }
+        li:nth-child(3){
+          &::before{
+            margin-bottom: 1rem;
+            background-color: #ddd;
+          }
+        }
+        li{
+          list-style: none;
+          display: flex;
+          &::before{
+            content: "";
+            padding: 0.03rem;
+            margin: 0 1rem 0 0;
+            background-color: #ddd;
+          }
+          div{
+            h3{
+              &::before{
+                content: "";
+                display: flex;
+                flex-direction: column;
+                width: 12px;
+                height: 12px;
+                border-radius: 100%;
+                margin-left: -1.37rem;
+                margin-bottom: -1rem;
+                background-color: #20bece;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 `
 
 
@@ -605,6 +730,51 @@ const ThirdDivStyle = styled.div`
       }
       div:nth-child(2){
         box-shadow: 0 0 20px 5px #00000011;
+      }
+    }
+  }
+  @media screen and (max-width:1024px){
+    width: 90%;
+    margin: 5rem auto 2rem auto;
+    .wrapper{
+      .info{
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        h1{
+          font-weight: 500;
+          font-size: 20px;
+        }
+        p{
+          color: #828282;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 1.5;
+        }
+      }
+      .parts{
+        margin: 2.5rem auto 2.5rem auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        div{
+          align-items: center;
+          text-align: center;
+          margin: 0rem .7rem 1.5rem .7rem;
+          padding: 2rem 1.5rem;
+          border-radius: 0.5rem;
+          box-shadow: 0 0 20px 5px #00000011;
+          h2{
+            font-weight: 500;
+            color: #424242;
+            font-size: 22px;
+            margin: 2rem 0;
+          }
+          p{
+            font-size: 17px;
+            line-height: 1.5;
+          }
+        }
       }
     }
   }
@@ -701,6 +871,70 @@ const ForthDivStyle = styled.div`
       }
     }
   }
+  @media screen and (max-width:1024px){
+    width: 90%;
+    margin: 0rem auto 2rem auto;
+    .wrapper{
+      h1{
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+      }
+      .staff{
+        overflow-x: scroll;
+        display: flex;
+        margin: 1rem 0;
+        ::-webkit-scrollbar {
+          display: none;
+        }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        div{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          border-top: 5px solid violet;
+          border-radius: 0.5rem;
+          border-top-left-radius: .6rem;
+          border-top-right-radius: .6rem;
+          box-shadow: 0 0 25px 5px #00000011;
+          margin: 2rem;
+          margin-left: 0rem;
+          margin-right: 1rem;
+          min-width: 280px;
+          img{
+            display: flex;
+            margin: 0 auto;
+            width: 6rem;
+            height: 6rem;
+            border-radius: 100%;
+            margin-top: -1rem;
+            border: 2px solid #fff;
+          }
+          h3,ins,p{
+            text-decoration: none;
+            text-align: center;
+            padding: 0 1.3rem;
+          }
+          h3{
+            margin-top: 1.3rem;
+            margin-bottom: .6rem;
+            font-weight: 500;
+            font-size: 22px;
+          }
+          ins{
+            margin: 0;
+            color: #828282;
+          }
+          p{
+            font-size: 15px;
+            line-height: 1.4rem;
+            margin: 2rem 0 2rem 0;
+          }
+        }
+      }
+    }
+  }
 `
 
 
@@ -772,6 +1006,68 @@ const FifthDivStyle = styled.div`
           transition: .1s all;
           &:hover{
             background: #aaa; 
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1024px){
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 0rem;
+    .wrapper{
+      display: flex;
+      justify-content: space-between;
+      background-color: #6a5ae0;
+      border-radius: 0rem;
+      img{
+        display: none;
+      }
+      .info{
+        width: 90%;
+        color: #fff;
+        margin: 1rem auto;
+        text-align: center;
+        h1{
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 1rem;
+        }
+        h3{
+          color: #e0e0e0;
+          font-size: 16px;
+          font-weight: 500;
+          margin-top: 0;
+        }
+        div{
+          display: flex;
+          margin-top: 2rem;
+          button:nth-child(1){
+            background: #ffe01b;
+            margin-RIGHT: .5rem;
+            &:hover{
+              background: #ebcb00; 
+            } 
+          }
+          button:nth-child(2){
+            margin-left: .5rem;
+          }
+          button{
+            padding: 1rem 0;
+            font-size: 12px;
+            min-width: max-content;
+            width: 100%;
+            margin: 1rem 0;
+            background: #fff;
+            border: none;
+            border-radius: .5rem;
+            font-weight: 500;
+            font-family: "Euclid";
+            cursor: pointer;
+            transition: .1s all;
+            &:hover{
+              background: #aaa; 
+            }
           }
         }
       }
