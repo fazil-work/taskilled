@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from '../Components/Navbar'
 import { Arrow, ArrowChevron } from '../Assets/SVGs/icons'

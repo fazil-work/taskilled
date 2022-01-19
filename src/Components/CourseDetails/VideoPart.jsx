@@ -1,3 +1,4 @@
+import React from 'react'
 import messages from '../../Assets/SVGs/messages.svg'
 import videoPlayer from '../../Assets/Images/VideoPlayer.png'
 import styled from 'styled-components'
