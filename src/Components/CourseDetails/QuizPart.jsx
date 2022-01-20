@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import questions from "../../Data/questions.json"
 import quiz from "../../Assets/SVGs/quiz.svg"
@@ -13,14 +13,15 @@ export const QuizPart = () => {
   const [ chosenOptionTarget, setChosenOptionTarget ] = useState("")
   const [ finished, setFinished ] = useState(false)
 
+  const optionsRef = useRef("")
+
   useEffect( () => {
-    if(answered){
-      document.getElementById("" + (questions[currentQuestion].answer).toUpperCase() + "").className = "success"
-    }
-      return () => {
-      if(document.getElementById("" + (questions[currentQuestion].answer).toUpperCase() + "")){
-        document.getElementById("" + (questions[currentQuestion].answer).toUpperCase() + "").className = "l"
-      }
+    let correctOption = optionsRef.current.children[(questions[currentQuestion].answer).toUpperCase()]
+    
+    answered && (correctOption.className = "success")
+
+    return () => {
+      correctOption && (correctOption.className = "")
     }
   }, [answered])
 
@@ -54,7 +55,6 @@ export const QuizPart = () => {
     })
   }, [chosenOptionTarget])
 
-  
   function chooseAnswer(element, chosenOption){
     if(answered === false){
       setOptionChosen(chosenOption)
@@ -129,16 +129,17 @@ export const QuizPart = () => {
           <h2>Question  {questions[currentQuestion].id}/{questions.length}</h2>
           <h3>{questions[currentQuestion].question}</h3>
           <ins>Yalnız bir cavab seçin.</ins>
-          <div className="options">
+          <div className="options" ref={optionsRef}>
             {
-              ["A", "B", "C", "D", "E"].map((variant, index) => (
+              ["A", "B", "C", "D", "E"].map((variant, index) => {
 
-                <div onClick={(e) => chooseAnswer(e, variant)} id={variant} key={index}>
-                  <ins>{variant}</ins>
-                  <p>{questions[currentQuestion][variant.toLowerCase()]} <img src={taskDone} className="" alt="" /></p>
-                </div> 
-
-              ))
+                return(
+                  <div onClick={(e) => chooseAnswer(e, variant)} id={variant} key={index}>
+                    <ins>{variant}</ins>
+                    <p>{questions[currentQuestion][variant.toLowerCase()]} <img src={taskDone} className="" alt="" /></p>
+                  </div> 
+                )
+              })
             }
           </div>
           {

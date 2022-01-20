@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
@@ -9,7 +9,7 @@ export function ScrollToTop() {
 
   const { pathname } = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
@@ -21,7 +21,7 @@ export function ShowNavbar(props) {
   const { pathname } = useLocation();
   const [includesPage, setIncludesPage] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIncludesPage(props.pages.includes(pathname));
   }, [pathname]);
 
@@ -33,7 +33,7 @@ export function ShowFooter(props) {
   const { pathname } = useLocation();
   const [includesPage, setIncludesPage] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIncludesPage(props.pages.includes(pathname));
   }, [pathname]);
 
@@ -45,7 +45,7 @@ export function ShowSidebar(props) {
   const { pathname } = useLocation();
   const [includesPage, setIncludesPage] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIncludesPage(props.pages.includes(pathname));
   }, [pathname]);
 
