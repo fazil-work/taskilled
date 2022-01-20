@@ -8,7 +8,7 @@ import note from "../../Assets/SVGs/note.svg";
 import resources from "../../Assets/SVGs/resources.svg";
 import styled from "styled-components";
 
-export const CourseMaterials = ({ setShowPart, showPart}) => {
+export const WeekMaterials = ({ setShowPart, showPart}) => {
   const refToClick = useRef(null);
   const [show, setShow] = useState(false);
 
@@ -28,7 +28,7 @@ export const CourseMaterials = ({ setShowPart, showPart}) => {
   }
 
   return (
-    <CourseMaterialsStyle>
+    <WeekMaterialsStyle>
       {weeksData.map((week, index) => {
         return (
           <div key={index}>
@@ -73,11 +73,11 @@ export const CourseMaterials = ({ setShowPart, showPart}) => {
           </div>
         );
       })}
-    </CourseMaterialsStyle>
+    </WeekMaterialsStyle>
   );
 };
 
-const CourseMaterialsStyle = styled.div`
+const WeekMaterialsStyle = styled.div`
   max-height: 600px;
   overflow-y: scroll;
   margin-top: -.8rem;

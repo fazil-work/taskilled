@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from '../Components/Navbar'
 import { Arrow, ArrowChevron } from '../Assets/SVGs/icons'
-import { CourseMaterials } from '../Components/CourseDetails/CourseMaterials'
-import { VideoPart } from '../Components/CourseDetails/VideoPart'
-import { QuizPart } from '../Components/CourseDetails/QuizPart'
-import { ResourcePart } from '../Components/CourseDetails/ResourcesPart'
-import { ReadingPart } from '../Components/CourseDetails/ReadingPart'
+import { WeekMaterials } from '../Components/WeekDetailsComponents/WeekMaterials'
+import { VideoPart } from '../Components/WeekDetailsComponents/VideoPart'
+import { QuizContainer } from '../Components/WeekDetailsComponents/Quiz/QuizContainer'
+import { ResourcePart } from '../Components/WeekDetailsComponents/ResourcesPart'
+import { ReadingPart } from '../Components/WeekDetailsComponents/ReadingPart'
 
 const WeekDetails = () => {
 
@@ -27,13 +27,13 @@ const WeekDetails = () => {
           </div>
         </div>
         <div className="wrapper">
-          <CourseMaterials showPart={showPart} setShowPart={setShowPart}/>
+          <WeekMaterials showPart={showPart} setShowPart={setShowPart}/>
           <div className="rightSide">
             {
               showPart === "video" || showPart === "video2"?
               <VideoPart/>
               : showPart === "quiz" ?
-              <QuizPart/>
+              <QuizContainer/>
               : showPart === "resource" ?
               <ResourcePart/>
               :
