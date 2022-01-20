@@ -3,7 +3,7 @@ import questions from "../../../Data/questions.json"
 import taskDone from "../../../Assets/SVGs/taskDone.svg"
 
 export const Quiz = ({setFinished}) => {
-  const [ currentQuestion, setCurrentQuestion ] = useState(19)
+  const [ currentQuestion, setCurrentQuestion ] = useState(0)
   const [ optionChosen, setOptionChosen ] = useState("")
   const [ answerIs, setAnswerIs ] = useState(null)
   const [ answered, setAnswered ] = useState(false)
