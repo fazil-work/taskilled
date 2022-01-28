@@ -7,26 +7,26 @@ import { ArrowChevron, BookSaved, Chart, Eye1, Gallery2, Receipt, Star, Text, Us
 
 const CreateAssignment = () => {
 
-  let bodyFormData = new FormData();
-  bodyFormData.append('user', 8);
-  bodyFormData.append('title', 'Dummy Title');
-  bodyFormData.append('image', "");
-  bodyFormData.append('video', "");
-  bodyFormData.append('reading_record', "");
-  bodyFormData.append('quiz_file', "");
-  bodyFormData.append('group', 1);
-  bodyFormData.append('week', 3);
+  // let bodyFormData = new FormData();
+  // bodyFormData.append('user', 8);
+  // bodyFormData.append('title', 'Dummy Title');
+  // bodyFormData.append('image', "");
+  // bodyFormData.append('video', "");
+  // bodyFormData.append('reading_record', "");
+  // bodyFormData.append('quiz_file', "");
+  // bodyFormData.append('group', 1);
+  // bodyFormData.append('week', 3);
   
-  useEffect(() => {
-    // try {
-    //   axios.post("http://3.68.156.86:8000/api/v1/core/create-assigment/", bodyFormData,)
-    //   .then(response => {
-    //     console.log(response);
-    //   })
-    // } catch (error) { 
-    //   console.log(error);
-    // }
-  },[])
+  // useEffect(() => {
+  //   try {
+  //     axios.post("http://3.68.156.86:8000/api/v1/core/create-assigment/", bodyFormData,)
+  //     .then(response => {
+  //       console.log(response);
+  //     })
+  //   } catch (error) { 
+  //     console.log(error);
+  //   }
+  // },[])
 
   return (
     <AssignmentStyle>
