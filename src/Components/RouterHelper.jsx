@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useContext, useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
 import { Footer } from "./Footer";
+import { AppContext } from "../Context/context";
 
 export function ScrollToTop() {
 
@@ -16,47 +17,59 @@ export function ScrollToTop() {
   return null;
 }
 
-export function ShowNavbar(props) {
+export function ShowNavbar() {
+  
+  const { user, noNavbarPagesArr } = useContext(AppContext);
 
   const { pathname } = useLocation();
-  const [includesPage, setIncludesPage] = useState(true);
+  const [ includesPage, setIncludesPage ] = useState(true);
 
   useLayoutEffect(() => {
-    setIncludesPage(props.pages.includes(pathname));
+    setIncludesPage(noNavbarPagesArr.includes(pathname));
   }, [pathname]);
-
-  return includesPage === false && <Navbar register searchbar />;
+  
+  if(includesPage === false) {
+    return user === true ? <Navbar/> : <Navbar register/>
+  }else{
+    return null
+  }
 }
 
-export function ShowFooter(props) {
+export function ShowFooter() {
+
+  const { noFooterPagesArr } = useContext(AppContext);
 
   const { pathname } = useLocation();
-  const [includesPage, setIncludesPage] = useState(true);
+  const [ includesPage, setIncludesPage ] = useState(true);
 
   useLayoutEffect(() => {
-    setIncludesPage(props.pages.includes(pathname));
+    setIncludesPage(noFooterPagesArr.includes(pathname));
   }, [pathname]);
 
-  return includesPage === false && <Footer dark extended />;
+  return includesPage === false && <Footer/>;
 }
 
 export function ShowSidebar(props) {
+
+  const { user, sidebarPagesArr } = useContext(AppContext);
   
   const { pathname } = useLocation();
-  const [includesPage, setIncludesPage] = useState(true);
+  const [ includesPage, setIncludesPage ] = useState(true);
 
   useLayoutEffect(() => {
-    setIncludesPage(props.pages.includes(pathname));
+    setIncludesPage(sidebarPagesArr.includes(pathname));
   }, [pathname]);
 
-  return includesPage === true ? (
-    <WithSidebarStyle>
-      <Sidebar />
-      {props.children}
-    </WithSidebarStyle>
-  ) : (
-    <>{props.children}</>
-  );
+  if(includesPage === true && user) {
+    return(
+      <WithSidebarStyle>
+        <Sidebar />
+        {props.children}
+      </WithSidebarStyle>
+    )
+  } else {
+    return <>{props.children}</>
+  }
 }
 
 const WithSidebarStyle = styled.div`

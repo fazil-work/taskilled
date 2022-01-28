@@ -1,37 +1,61 @@
-import React, { useState } from "react";
-import userInfo from "../Data/user.json";
-import logo from "../Assets/SVGs/logo.svg";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { Notification, Search, User } from "../Assets/SVGs/icons";
+import React, { useContext, useEffect, useRef, useState } from "react"
+import userInfo from "../Data/user.json"
+import logo from "../Assets/SVGs/logo.svg"
+import styled from "styled-components"
+import { Link, useLocation } from "react-router-dom"
+import { ArrowChevron, Notification, Search, User } from "../Assets/SVGs/icons"
+import { AppContext } from "../Context/context"
 
-export const Navbar = ({register, searchbar, searchIcon, width}) => {
+export const Navbar = ({register, width}) => {
 
-  const [showSearchbar, setShowSearchbar] = useState(false)
+  const { setUser } = useContext(AppContext)
+  const [ showSearchbar, setShowSearchbar ] = useState(false)
+  const [ dropdownOpen, setDropdownOpen ] = useState(false)
+
+  const location = useLocation()
+
+  const dropRef = useRef(null)
+
+  // Closes dropdown if user clicks outside of it
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropRef.current && !dropRef.current.contains(e.target)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [dropdownOpen])
+  
+  // Closes dropdown if the route changes
+  useEffect(() => {
+    setDropdownOpen(false)
+  },[location.pathname])
+
+  // Logs the current user out
+  function logout(){
+    localStorage.setItem("taskolluser", false)
+    setUser(false)
+  }
 
   return (
-    <NavbarStyle>
+    <NavbarStyle dropdownOpen={dropdownOpen}>
       <div className="wrapper" style={{width: width ? width + "%" : "84%"}}>
         <Link to="/">
           <img className="logo" src={logo} alt="Logo" />
         </Link>
-        {
-          searchbar &&
-          <>
-          {
-            register && <ins className="registerMargin"/>
-          }
-          <div className="searchBar">
-            <span>{Search(.8, "#2e3a59")}</span>
-            <input type="text" placeholder="Axtarış..."/>
-          </div>
-          </>
-        }
+        <div className="searchBar">
+          <span>{Search(.8, "#2e3a59")}</span>
+          <input type="text" placeholder="Axtarış..."/>
+        </div>
         {
           register ?
           <div className="register">
-            <a href="">Daxil ol</a>
-            <a href="">Qeydiyyat</a>
+            <Link to="/login">Daxil ol</Link>
+            <Link to="/register">Qeydiyyat</Link>
             <div className="mobile">
               <span onClick={() => setShowSearchbar(!showSearchbar)}>{Search(.9)}</span>
               <span>{User()}</span>
@@ -39,24 +63,44 @@ export const Navbar = ({register, searchbar, searchIcon, width}) => {
           </div>
           :
           <div className="first">
-            <div>
+            <div className="icons">
               <button onClick={() => setShowSearchbar(!showSearchbar)} alt="Search">{Search(.95, "#333")}</button>
               <Link to="/notifications">{Notification(1, "#555")}</Link>
             </div>
             <span></span>
-            <Link to="/consultant"><img src={userInfo.image} alt="User profile picture" /></Link>
+            <div className="dropdownWrapper" ref={dropRef}>
+              <div className="dropdown">
+                <Link to="/consultant" >
+                  <img src={userInfo.image} alt="User profile picture" />
+                  <p>{userInfo.fullName}</p>
+                </Link>
+                <ins onClick={() => setDropdownOpen(!dropdownOpen)}>{ArrowChevron(1)}</ins>
+              </div>
+              <div>
+                {
+                  dropdownOpen &&
+                  <div className="insideDropdown">
+                    <Link to="/consultant">Profil</Link>
+                    <Link to="/home">Kurslarım</Link>
+                    <Link to="/assignments">Tapşırıqlar</Link>
+                    <Link to="/settings">Ayarlar</Link>
+                    <button onClick={logout}>Log out</button>
+                  </div>
+                }
+              </div>
+            </div>
           </div>
         }
       </div>
-      <div className="searchWrapper">
-        {
-          (showSearchbar && !searchIcon) &&
+      {
+        showSearchbar &&
+        <div className="searchWrapper">
           <div className="searchBarMobile">
             <span>{Search(.8, "#2e3a59")}</span>
             <input type="text" placeholder="Axtarış..."/>
           </div>
-        }
-      </div>
+        </div>
+      }
     </NavbarStyle>
   );
 };
@@ -96,6 +140,11 @@ const NavbarStyle = styled.div`
     .first {
       display: flex;
       align-items: center;
+      /* position: relative; */
+      a{
+        text-decoration: none;
+        color: #000;
+      }
       div {
         button:nth-child(1){
           display: none;
@@ -108,19 +157,93 @@ const NavbarStyle = styled.div`
           margin: 0 .5rem;
         }
       }
+      .dropdownWrapper{
+        position: relative;
+        user-select: none;
+        transition: all 1s;
+        div{
+          z-index: 5;
+          width: 100%;
+          .insideDropdown{
+            position: absolute;
+            background-color: #fff;
+            width: 100%;
+            border-radius: 0 0 .75rem .75rem;
+            padding: .25rem 0;
+            border: 1px solid #aaa;
+            border-top: 0;
+            button:nth-child(1){
+              display: block;
+            }
+            button{
+              width: 90%;
+
+            }
+            button,a{
+              font-size: 16px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              /* width: 70%; */
+              border-radius: 0.4rem;
+              padding: .5rem 1rem;
+              margin: .5rem .75rem;
+              background-color: #e8e8e8;
+              &:hover{
+                background-color: #ffe01b;
+              }
+            }
+          }
+        }
+        .dropdown{
+          display: flex;
+          align-items: center;
+          border: 1px solid transparent;
+          border-bottom: none;
+          border: ${props => props.dropdownOpen && "1px solid #aaa"};
+          border-bottom: ${props => props.dropdownOpen && "none"};
+          border-radius: .75rem .75rem 0 0;
+          a{
+            border-radius: .75rem;
+            transition: all .2s;
+            margin: 0;
+            padding: 0 .75rem;
+            display: flex;
+            align-items: center;
+            img {
+              width: 2.5rem;
+              height: 2.5rem;
+              border-radius: 100%;
+              margin-right: .75rem;
+            }
+            p{
+              min-width: max-content;
+            }
+            &:hover{
+              background-color: ${props => !props.dropdownOpen && "#edf1f7"};
+            }
+          }
+          ins{
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            width: 2.5rem;
+            height: 3.2rem;
+            min-height: max-content;
+            cursor: pointer;
+            &:hover{
+              background-color: ${props => !props.dropdownOpen && "#edf1f7"};
+            }
+          }
+        }
+      }
       span{
         border-left: 1px solid #ccc;
         height: 2rem;
-        margin: 0 1.6rem 0 .8rem;
+        margin: 0 .8rem 0 .8rem;
       }
-      img {
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 100%;
-      }
-    }
-    .registerMargin{
-      margin-left: -4rem;
     }
     .searchBar{
       display: flex;
@@ -129,7 +252,7 @@ const NavbarStyle = styled.div`
       padding: .5rem 0rem;
       border-radius: 0.6rem;
       margin: .1rem 0;
-      margin-left: -2rem;
+      margin-left: 10%;
       span{
         padding: .3rem 1.5rem 0.1rem 1.2rem;
       }
@@ -218,16 +341,30 @@ const NavbarStyle = styled.div`
         }
       }
       .first{
-        div{
-          margin: 0 .8rem;
-          button{
-            padding: 0.25rem;
-            margin: 0.25rem;
+        .dropdownWrapper{
+          div{
+            .insideDropdown{
+              display: none;
+            }
+          }
+          .dropdown{
+            a{
+              img {
+                margin: 0;
+              }
+              p{
+                display: none;
+              }
+            }
+            ins{
+              display: none;
+            }
           }
         }
-        img{
-          width: 2.5rem;
-          height: 2.5rem;
+        div{
+          button:nth-child(1){
+            display: inline;
+          }
         }
         span{
           display: none;
@@ -246,21 +383,17 @@ const NavbarStyle = styled.div`
       }
       .first{
         div{
-          margin: 0 .8rem;
-          button:nth-child(1){
-            display: inline;
-          }
+          margin: 0;
           button{
             padding: 0.25rem;
             margin: 0.25rem;
           }
         }
-        img{
-          width: 2.5rem;
-          height: 2.5rem;
-        }
         span{
           display: none;
+        }
+        .icons{
+          margin-right: 0;
         }
       }
       .searchBar{

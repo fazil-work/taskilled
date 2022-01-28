@@ -4,40 +4,38 @@ import logo from "../Assets/SVGs/logo.svg";
 import { Link } from "react-router-dom";
 import { Email, Facebook, Instagram, Location, Phone, Twitter, Youtube } from "../Assets/SVGs/icons";
 
-export const Footer = ({extended, dark}) => {
+export const Footer = () => {
   return (
-    <FooterStyle dark={dark}>
-      {extended && 
-        <div className="extended">
-          <div className="first">
-            <img src={logo} alt="logo" />
-            <div className="links">
-              <a href="">{Instagram()}</a>
-              <a href="">{Facebook()}</a>
-              <a href="">{Youtube()}</a>
-              <a href="">{Twitter()}</a>
-            </div>
-          </div>
-          <div className="second">
-            <h3>Menu</h3>
-            <Link to="/courses">Kurslar</Link>
-            <Link to="/sales">Endirimlər</Link>
-            <Link to="/about">Haqqımızda</Link>
-          </div>
-          <div className="third">
-            <h3>Kömək</h3>
-            <Link to="/faq">Tez-tez soruşulan suallar</Link>
-            <Link to="/howitworks">Necə işləyir</Link>
-            <Link to="/return">Geri qaytarılma şərtləri</Link>
-          </div>
-          <div className="forth">
-            <h3>Əlaqə</h3>
-            <div><span>{Location()}</span><p>M. K. Ataturk avenue 89, Baku, Azerbaijan</p></div>
-            <div><span>{Email()}</span><p>mail@taskilled.com</p></div>
-            <div><span>{Phone()}</span><p>*2801</p></div>
+    <FooterStyle>
+      <div className="extended">
+        <div className="first">
+          <img src={logo} alt="logo" />
+          <div className="links">
+            <a href="">{Instagram()}</a>
+            <a href="">{Facebook()}</a>
+            <a href="">{Youtube()}</a>
+            <a href="">{Twitter()}</a>
           </div>
         </div>
-      }
+        <div className="second">
+          <h3>Menu</h3>
+          <Link to="/courses">Kurslar</Link>
+          <Link to="/sales">Endirimlər</Link>
+          <Link to="/about">Haqqımızda</Link>
+        </div>
+        <div className="third">
+          <h3>Kömək</h3>
+          <Link to="/faq">Tez-tez soruşulan suallar</Link>
+          <Link to="/howitworks">Necə işləyir</Link>
+          <Link to="/return">Geri qaytarılma şərtləri</Link>
+        </div>
+        <div className="forth">
+          <h3>Əlaqə</h3>
+          <div><span>{Location()}</span><p>M. K. Ataturk avenue 89, Baku, Azerbaijan</p></div>
+          <div><span>{Email()}</span><p>mail@taskilled.com</p></div>
+          <div><span>{Phone()}</span><p>*2801</p></div>
+        </div>
+      </div>
       <div className="miniFooter">
         <p>&copy; Taskool 2021. Bütün hüquqlar qorunur.</p>
         <div>
@@ -54,7 +52,7 @@ const FooterStyle = styled.div`
   justify-content: space-between;
   align-items: center;
   color: #727272;
-  background-color: ${props => props.dark ? "#f5f5f5" : "#fff"};
+  background-color: "#f5f5f5";
   p {
     font-size: 17px;
   }

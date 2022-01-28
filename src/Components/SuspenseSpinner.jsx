@@ -1,5 +1,13 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import styled from 'styled-components'
+
+export const SuspenseSpinner = (props) => {
+  return (
+    <Suspense fallback={<Spinner/>}>
+      {props.children}
+    </Suspense>
+  );
+};
 
 function Spinner() {
   return (
@@ -8,8 +16,6 @@ function Spinner() {
     </SpinnerStyle>
   )
 }
-
-export default Spinner
 
 const SpinnerStyle = styled.div`
   #loading {

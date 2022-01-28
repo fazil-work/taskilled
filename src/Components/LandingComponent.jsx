@@ -228,7 +228,7 @@ const FirstPartStyle = styled.div`
       background-repeat: no-repeat;
       height: 380px;
       width: 100%;
-      transform: scale(1) translateX(0);
+      transform: scale(1) translateX(0) translateY(-2rem);
     }
   }
 `

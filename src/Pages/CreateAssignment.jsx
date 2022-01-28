@@ -1,14 +1,46 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Calendar } from "../Components/Calendar/Calendar";
 import { ArrowChevron, BookSaved, Chart, Eye1, Gallery2, Receipt, Star, Text, User, Video } from "../Assets/SVGs/icons";
 
 const CreateAssignment = () => {
+
+  let bodyFormData = new FormData();
+  bodyFormData.append('user', 8);
+  bodyFormData.append('title', 'Dummy Title');
+  bodyFormData.append('image', "");
+  bodyFormData.append('video', "");
+  bodyFormData.append('reading_record', "");
+  bodyFormData.append('quiz_file', "");
+  bodyFormData.append('group', 1);
+  bodyFormData.append('week', 3);
+
+  async function fetchData() {
+
+    for (let pair of bodyFormData.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+    }
+
+  }
+  
+  useEffect(() => {
+    try {
+      const response = axios.post("http://3.68.156.86:8000/api/v1/core/create-assigment/", bodyFormData,)
+      .then(response => {
+        console.log(response);
+      })
+    } catch (error) { 
+      console.log(error);
+    }
+  },[])
+
   return (
     <AssignmentStyle>
       <div className="header">
         <h3>Tapşırıq təyin et</h3>
+        <button onClick={fetchData}>Fetch</button>
         <Link to="/assignments">Çıxış</Link>
       </div>
       <div className="container">
@@ -91,10 +123,10 @@ const CreateAssignment = () => {
               <label>
                   <select name="occupation">
                     <option defaultValue label="" value="">Həftəni seç</option>
-                    <option label="" value="Back-end Developer">Qrup 1</option>
-                    <option label="" value="Back-end Developer">Qrup 2</option>
-                    <option label="" value="Back-end Developer">Qrup 3</option>
-                    <option label="" value="Back-end Developer">Qrup 4</option>
+                    <option label="" value="1">1</option>
+                    <option label="" value="2">2</option>
+                    <option label="" value="3">3</option>
+                    <option label="" value="4">4</option>
                   </select>
                   <span>{ArrowChevron(0.9)}</span>
               </label>

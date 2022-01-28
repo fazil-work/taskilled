@@ -15,7 +15,7 @@ export const Sidebar = () => {
         <p className="username">{userInfo.fullName}</p>
       </Link>
       <div className="links">
-        <Link to=""><ins>{Gallery(.9)}</ins> <p>Kurslarım</p></Link>
+        <Link to="/home"><ins>{Gallery(.9)}</ins> <p>Kurslarım</p></Link>
         <Link to=""><ins>{Money(.9)}</ins> <p>Balans</p></Link>
         <Link to="/assignments" className={location.pathname.includes("/assignments") ? "current" : ""}><ins>{Task(1.05)}</ins> <p>Tapşırıqlar</p></Link>
         <Link to="/settings" className={location.pathname.includes("/settings") ? "current" : ""}><ins>{Settings(.9)}</ins> <p>Ayarlar</p></Link>
