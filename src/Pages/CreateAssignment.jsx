@@ -18,14 +18,14 @@ const CreateAssignment = () => {
   bodyFormData.append('week', 3);
   
   useEffect(() => {
-    try {
-      axios.post("http://3.68.156.86:8000/api/v1/core/create-assigment/", bodyFormData,)
-      .then(response => {
-        console.log(response);
-      })
-    } catch (error) { 
-      console.log(error);
-    }
+    // try {
+    //   axios.post("http://3.68.156.86:8000/api/v1/core/create-assigment/", bodyFormData,)
+    //   .then(response => {
+    //     console.log(response);
+    //   })
+    // } catch (error) { 
+    //   console.log(error);
+    // }
   },[])
 
   return (
