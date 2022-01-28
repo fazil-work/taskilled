@@ -16,18 +16,10 @@ const CreateAssignment = () => {
   bodyFormData.append('quiz_file', "");
   bodyFormData.append('group', 1);
   bodyFormData.append('week', 3);
-
-  async function fetchData() {
-
-    for (let pair of bodyFormData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
-
-  }
   
   useEffect(() => {
     try {
-      const response = axios.post("http://3.68.156.86:8000/api/v1/core/create-assigment/", bodyFormData,)
+      axios.post("http://3.68.156.86:8000/api/v1/core/create-assigment/", bodyFormData,)
       .then(response => {
         console.log(response);
       })
@@ -40,7 +32,6 @@ const CreateAssignment = () => {
     <AssignmentStyle>
       <div className="header">
         <h3>Tapşırıq təyin et</h3>
-        <button onClick={fetchData}>Fetch</button>
         <Link to="/assignments">Çıxış</Link>
       </div>
       <div className="container">
