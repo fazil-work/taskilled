@@ -20,7 +20,7 @@ const objMonth = {
 const arrWeekDays = ["B", "B.e", "Ç.a", "Ç", "C.a", "C", "Ş",];
 const arrMonths = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun", "İyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"];
 
-const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
+const CalendarLogic = ({date, toggle, handleToUpdateDate, pastDate, setChosenDateGlobalState}) => {
 
   const [firstDay, setFirstDay] = useState(new Date(date.getFullYear() + "-" + (date.getMonth() + 1) + "-01").getDay())
   const [selectedYear, setSelectedYear] = useState(date.getFullYear())
@@ -60,6 +60,7 @@ const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
 		Date.parse(dateX) < Date.parse(now) ? pastDate(true) : pastDate(false)
 		Date.parse(dateX) >= Date.parse(now) && setSelectedDay(parseInt(event.currentTarget.dataset.id));
 		handleToUpdateDate(dateX);
+		setChosenDateGlobalState(dateX);
 	};
 
 	function getDayBlocks() {
@@ -110,7 +111,7 @@ const CalendarLogic = ({date, toggle, handleToUpdateDate,pastDate}) => {
   )
 }
 
-export const Calendar = () => {
+export const Calendar = ({props}) => {
 
   const [date, setDate] = useState(new Date())
   const [toggle, setToggle] = useState(true)
@@ -134,6 +135,7 @@ export const Calendar = () => {
 						toggle={toggle}
 						handleToUpdateDate={handleToUpdateDate}
 						pastDate={setPastDate}
+						setChosenDateGlobalState={props.setChosenDateGlobalState}
 					/>
 					{(!pastDate && selectedDate) && <h3 className='chosenDate'>{selectedDate}</h3>}
 					{pastDate && <p className='noPastDates chosenDate'>Keçmiş tarixlərə tapşırıq təyin edə bilməzsiniz</p>}

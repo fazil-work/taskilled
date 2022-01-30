@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Email, Facebook, Instagram, Location, Phone, Twitter, Youtube } from "../Assets/SVGs/icons";
 
 export const Footer = () => {
+
   return (
     <FooterStyle>
       <div className="extended">
@@ -52,7 +53,7 @@ const FooterStyle = styled.div`
   justify-content: space-between;
   align-items: center;
   color: #727272;
-  background-color: "#f5f5f5";
+  background-color: #f2f2f2;
   p {
     font-size: 17px;
   }

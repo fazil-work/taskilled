@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext } from 'react';
 import { AppContext } from '../Context/context';
 
@@ -14,6 +15,7 @@ const Login = () => {
     <div style={{textAlign:"center", margin:"10rem"}}>
       <h1>Burada Login komponenti yerləşəcək </h1>
       <button style={{fontSize:"24px",margin:"1rem 0"}} onClick={login}>Test istifadəçi olaraq giriş et</button>
+      <br />
     </div>
   )
 };
